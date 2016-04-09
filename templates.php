@@ -1,6 +1,6 @@
 <script type="text/template" id="index">
   <div class="index">
-    index
+    <div class="list-group graphs" id="graphsList"></div>
   </div>
 </script>
 

@@ -11,8 +11,16 @@ var NavigationRouter = Backbone.Router.extend({
   },
 
   index: function () {  console.log('index');
-    if (views.indexView != null) {  
+    if (views.indexView != null) {  console.log('indexgg');
       views.indexView.render();
+
+      var initialGraphs = [
+                            { title: 'title 1', yMax: 200, yMin: 0, yPeriod: 10, xMax: 600,  xMin: 0, xPeriod: 10, dots: {} }, 
+                            { title: 'title 2', yMax: 200, yMin: 0, yPeriod: 10, xMax: 600,  xMin: 0, xPeriod: 10, dots: {} }, 
+                            { title: 'title 3', yMax: 200, yMin: 0, yPeriod: 10, xMax: 600,  xMin: 0, xPeriod: 10, dots: {} }
+                          ];
+
+      new GraphLinksView(initialGraphs);        
     }
   },
 
