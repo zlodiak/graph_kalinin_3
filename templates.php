@@ -1,6 +1,10 @@
 <script type="text/template" id="index">
   <div class="index">
-    <div class="list-group graphs" id="graphsList"></div>
+    <div class="list-group graphs" id="graphsList">
+      <button type="button" class="btn btn-default btn-add pull-right" aria-label="Left Align" data-toggle="modal" data-target="#addGraph">
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+      </button>      
+    </div>
   </div>
 </script>
 

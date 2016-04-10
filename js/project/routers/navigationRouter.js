@@ -10,8 +10,8 @@ var NavigationRouter = Backbone.Router.extend({
     "!/page5": "page5"
   },
 
-  index: function () {  console.log('index');
-    if (views.indexView != null) {  console.log('indexgg');
+  index: function () {  
+    if (views.indexView != null) {  
       views.indexView.render();
 
       var initialGraphs = [

@@ -1,4 +1,4 @@
-var IndexView = Backbone.View.extend({
+var IndexView = Backbone.View.extend({  
   el: $('#contentContainer'), 
 
   template: _.template($('#index').html()), 
