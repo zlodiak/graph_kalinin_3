@@ -39,33 +39,50 @@ APP.GraphLinksView = Backbone.View.extend({
 });
 
 
+
 APP.AddGraphModalView = Backbone.View.extend({
 
   el: '#graphsList',
 
   template: _.template($('#addGraphTemplate').html()),
 
-  initialize: function() { 
+  initialize: function(graphList) { 
+    this.collection = graphList;
     this.render();  
   },  
 
   render: function() {  
     this.$el.append(this.template(1));
+
+    this.collection.each(function(item) {
+      this.renderAddGraphModalField(item);
+    }, this );
+
     return this;
-  }
+  }, 
+
+  renderAddGraphModalField: function(item) { 
+    var graphModalField = new APP.AddGraphModalFieldView({
+      model: item
+    });
+
+    this.$el.find('#addGraphModalFields').prepend(graphModalField.render().el);
+  }  
 
 });
 
 
 
 
-/*AddGraphModalFieldView = Backbone.View.extend({
+APP.AddGraphModalFieldView = Backbone.View.extend({
 
   tagName: 'p',
 
+  template: _.template($('#addGraphFieldTemplate').html()),
+
   render: function() {  
-    this.$el.html('<label>lll</label>');
+    this.$el.html(this.template());
     return this;
   }
 
-});*/
+});

@@ -17,7 +17,7 @@
               <h4 class="modal-title" id="addGraphLabel">Добавить график</h4>
             </div>
 
-            <div class="modal-body">
+            <div class="modal-body" id="addGraphModalFields">
               <p>
                 <label for="title">Название</label>
                 <input class="form-control" id="title" name="title" type="text">
