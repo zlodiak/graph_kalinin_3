@@ -28,7 +28,7 @@ APP.NavigationRouter = Backbone.Router.extend({
                           ];
 
       new APP.GraphLinksView(initialGraphs);     
-      //new APP.AddGraphModalView();   
+      new APP.AddGraphModalView();   
     };
   },
 
