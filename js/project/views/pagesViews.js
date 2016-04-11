@@ -65,7 +65,7 @@ var Page5View = Backbone.View.extend({
 });
 
 
-views = { 
+pagesViews = { 
           indexView: new IndexView(),
           page1View: new Page1View(),
           page2View: new Page2View(),

@@ -11,8 +11,8 @@ var NavigationRouter = Backbone.Router.extend({
   },
 
   index: function () {  
-    if (views.indexView != null) {  
-      views.indexView.render();
+    if (pagesViews.indexView != null) {  
+      pagesViews.indexView.render();
 
       var initialGraphs = [
                             { title: 'title 1', yMax: 200, yMin: 0, yPeriod: 10, xMax: 600,  xMin: 0, xPeriod: 10, dots: {} }, 
@@ -26,32 +26,32 @@ var NavigationRouter = Backbone.Router.extend({
   },
 
   page1: function () {  console.log('page1');
-    if (views.indexView != null) {  
-      views.page1View.render();
+    if (pagesViews.indexView != null) {  
+      pagesViews.page1View.render();
     }
   },  
 
   page2: function () {  console.log('page2');
-    if (views.indexView != null) {  
-      views.page2View.render();
+    if (pagesViews.indexView != null) {  
+      pagesViews.page2View.render();
     }
   },  
 
   page3: function () {  console.log('page3');
-    if (views.indexView != null) {  
-      views.page3View.render();
+    if (pagesViews.indexView != null) {  
+      pagesViews.page3View.render();
     }
   },  
 
   page4: function () {  console.log('page4');
-    if (views.indexView != null) {  
-      views.page4View.render();
+    if (pagesViews.indexView != null) {  
+      pagesViews.page4View.render();
     }
   },  
 
   page5: function () {  
-    if (views.indexView != null) {  
-      views.page5View.render();
+    if (pagesViews.indexView != null) {  
+      pagesViews.page5View.render();
     }
   }          
 });
