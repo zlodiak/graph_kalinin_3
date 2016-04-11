@@ -1,18 +1,3 @@
-APP.GraphLinkView = Backbone.View.extend({
-
-  tagName: 'a',
-
-  className: 'list-group-item',
-
-  render: function() {  
-    this.$el.html(this.model.attributes.title);
-    this.$el.attr('href', this.model.attributes.title);
-    return this;
-  }
-
-});
-
-
 APP.GraphLinksView = Backbone.View.extend({
 
   el: '#graphsList',
@@ -39,6 +24,20 @@ APP.GraphLinksView = Backbone.View.extend({
 });
 
 
+APP.GraphLinkView = Backbone.View.extend({
+
+  tagName: 'a',
+
+  className: 'list-group-item',
+
+  render: function() {  
+    this.$el.html(this.model.attributes.title);
+    this.$el.attr('href', this.model.attributes.title);
+    return this;
+  }
+
+});
+
 
 APP.AddGraphModalView = Backbone.View.extend({
 
@@ -46,42 +45,41 @@ APP.AddGraphModalView = Backbone.View.extend({
 
   template: _.template($('#addGraphTemplate').html()),
 
-  initialize: function(graphList) { 
-    this.collection = graphList;
+  initialize: function(graphSimpleKeys) { console.log('nin');
+    this.graphSimpleKeys = graphSimpleKeys;
     this.render();  
   },  
 
   render: function() {  
-    this.$el.append(this.template(1));
+    this.$el.append(this.template());
 
-    this.collection.each(function(item) {
-      this.renderAddGraphModalField(item);
-    }, this );
+    for(var i = 0; i < this.graphSimpleKeys.length; i++) { 
+      this.renderAddGraphModalField(this.graphSimpleKeys[i]);
+    };
 
     return this;
   }, 
 
-  renderAddGraphModalField: function(item) { 
-    var graphModalField = new APP.AddGraphModalFieldView({
-      model: item
-    });
-
-    this.$el.find('#addGraphModalFields').prepend(graphModalField.render().el);
+  renderAddGraphModalField: function(field) { 
+    var fieldView = new APP.AddGraphModalFieldView(field);
+    this.$el.find('#addGraphModalFields').append(fieldView.render().el);
   }  
 
 });
 
 
-
-
 APP.AddGraphModalFieldView = Backbone.View.extend({
+
+  initialize: function(field) {
+    this.field = field;    
+  },  
 
   tagName: 'p',
 
   template: _.template($('#addGraphFieldTemplate').html()),
 
   render: function() {  
-    this.$el.html(this.template());
+    this.$el.html(this.template({field: this.field}));
     return this;
   }
 

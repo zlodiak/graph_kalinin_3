@@ -13,7 +13,6 @@ APP.NavigationRouter = Backbone.Router.extend({
   },
 
   initialize: function() { 
-    this.index();
     Backbone.history.start();
   },  
 
@@ -27,8 +26,16 @@ APP.NavigationRouter = Backbone.Router.extend({
                             { title: 'title 3', yMax: 200, yMin: 0, yPeriod: 10, xMax: 600,  xMin: 0, xPeriod: 10, dots: {} }
                           ];
 
-      new APP.GraphLinksView(initialGraphs);     
-      new APP.AddGraphModalView();   
+      new APP.GraphLinksView(initialGraphs);                               
+
+      var graphDefaultsKeys = Object.keys(APP.Graph.prototype.defaults), 
+          graphSimpleKeys = [];
+
+      for(var i = 0; i < graphDefaultsKeys.length; i++) {
+        if(typeof graphDefaultsKeys[i] != 'object') { graphSimpleKeys.push(graphDefaultsKeys[i]) };
+      };
+     
+      new APP.AddGraphModalView(graphSimpleKeys);   
     };
   },
 

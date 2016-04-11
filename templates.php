@@ -1,6 +1,6 @@
 <script type="text/template" id="addGraphFieldTemplate">
   <p>
-    <label for="title">111</label>
+    <label for="title"><%- field %></label>
     <input class="form-control" id="222" name="222" type="text">
   </p>
 </script>
@@ -18,34 +18,6 @@
             </div>
 
             <div class="modal-body" id="addGraphModalFields">
-              <p>
-                <label for="title">Название</label>
-                <input class="form-control" id="title" name="title" type="text">
-              </p>
-              <p>
-                <label for="y_max">y_max</label>
-                <input class="form-control" id="y_max" name="y_max" type="number" rangelength="[1,3]" value="100">
-              </p>
-              <p>
-                <label for="y_min">y_min</label>
-                <input class="form-control" id="y_min" name="y_min" type="number" rangelength="[1,3]" value="0">
-              </p>
-              <p>
-                <label for="y_period">y_period</label>
-                <input class="form-control" id="y_period" name="y_period" type="number" rangelength="[1,3]" value="10">
-              </p>
-              <p>
-                <label for="x_max">x_max</label>
-                <input class="form-control" id="x_max" name="x_max" type="number" rangelength="[1,3]" value="100">
-              </p>
-              <p>
-                <label for="x_min">x_min</label>
-                <input class="form-control" id="x_min" name="x_min" type="number" rangelength="[1,3]" value="0">
-              </p>
-              <p>
-                <label for="x_period">x_period</label>
-                <input class="form-control" id="x_period" name="x_period" type="number" rangelength="[1,3]" value="10">
-              </p>
             </div>
 
             <div class="modal-footer">
