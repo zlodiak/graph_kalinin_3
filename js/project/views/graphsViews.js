@@ -1,4 +1,4 @@
-GraphLinkView = Backbone.View.extend({
+APP.GraphLinkView = Backbone.View.extend({
 
   tagName: 'a',
 
@@ -13,23 +13,23 @@ GraphLinkView = Backbone.View.extend({
 });
 
 
-GraphLinksView = Backbone.View.extend({
+APP.GraphLinksView = Backbone.View.extend({
 
   el: '#graphsList',
 
   initialize: function(initialGraphs) { 
-    this.collection = new GraphList(initialGraphs);
+    this.collection = new APP.GraphList(initialGraphs);
     this.render();  
   },
 
   render: function() {  
     this.collection.each(function(item) {
-    this.renderGraphLink(item);
+      this.renderGraphLink(item);
     }, this );
   }, 
 
   renderGraphLink: function(item) { 
-    var graphLink = new GraphLinkView({
+    var graphLink = new APP.GraphLinkView({
       model: item
     });
 
@@ -39,7 +39,7 @@ GraphLinksView = Backbone.View.extend({
 });
 
 
-AddGraphModalView = Backbone.View.extend({
+APP.AddGraphModalView = Backbone.View.extend({
 
   el: '#graphsList',
 

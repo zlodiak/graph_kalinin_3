@@ -1,6 +1,6 @@
-var GraphList = Backbone.Collection.extend({
+APP.GraphList = Backbone.Collection.extend({
 
-  model: Graph//,
+  model: APP.Graph//,
 
   //localStorage: new Backbone.LocalStorage('GraphList')
 

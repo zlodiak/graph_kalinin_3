@@ -1,15 +1,19 @@
-var IndexView = Backbone.View.extend({  
+APP.IndexView = Backbone.View.extend({  
   el: $('#contentContainer'), 
+
+  initialize: function() {  
+    this.render();
+  },
 
   template: _.template($('#index').html()), 
 
-  render: function () {   
+  render: function () {  
     $(this.el).html(this.template());
     return this;
   }
 });
 
-var Page1View = Backbone.View.extend({
+APP.Page1View = Backbone.View.extend({
   el: $('#contentContainer'), 
 
   template: _.template($('#page1').html()), 
@@ -20,7 +24,7 @@ var Page1View = Backbone.View.extend({
   }
 });
 
-var Page2View = Backbone.View.extend({
+APP.Page2View = Backbone.View.extend({
   el: $('#contentContainer'), 
 
   template: _.template($('#page2').html()), 
@@ -31,7 +35,7 @@ var Page2View = Backbone.View.extend({
   }
 });
 
-var Page3View = Backbone.View.extend({
+APP.Page3View = Backbone.View.extend({
   el: $('#contentContainer'), 
 
   template: _.template($('#page3').html()), 
@@ -42,7 +46,7 @@ var Page3View = Backbone.View.extend({
   }
 });
 
-var Page4View = Backbone.View.extend({
+APP.Page4View = Backbone.View.extend({
   el: $('#contentContainer'), 
 
   template: _.template($('#page4').html()), 
@@ -53,7 +57,7 @@ var Page4View = Backbone.View.extend({
   }
 });
 
-var Page5View = Backbone.View.extend({
+APP.Page5View = Backbone.View.extend({
   el: $('#contentContainer'), 
 
   template: _.template($('#page5').html()), 
@@ -65,11 +69,11 @@ var Page5View = Backbone.View.extend({
 });
 
 
-pagesViews = { 
-          indexView: new IndexView(),
-          page1View: new Page1View(),
-          page2View: new Page2View(),
-          page3View: new Page3View(),
-          page4View: new Page4View(),
-          page5View: new Page5View()
-        };
+/*pagesViews =  { 
+                indexView: new APP.IndexView(),
+                page1View: new APP.Page1View(),
+                page2View: new APP.Page2View(),
+                page3View: new APP.Page3View(),
+                page4View: new APP.Page4View(),
+                page5View: new APP.Page5View()
+              };*/
