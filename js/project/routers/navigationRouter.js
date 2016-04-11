@@ -20,7 +20,8 @@ var NavigationRouter = Backbone.Router.extend({
                             { title: 'title 3', yMax: 200, yMin: 0, yPeriod: 10, xMax: 600,  xMin: 0, xPeriod: 10, dots: {} }
                           ];
 
-      new GraphLinksView(initialGraphs);        
+      new GraphLinksView(initialGraphs);     
+      new AddGraphModalView();   
     }
   },
 

@@ -37,3 +37,32 @@ GraphLinksView = Backbone.View.extend({
   }  
 
 });
+
+AddGraphModalView = Backbone.View.extend({
+
+  el: '#graphsList',
+
+  template: _.template($('#addGraphTemplate').html()),
+
+  initialize: function() { 
+    this.render();  
+  },  
+
+  render: function() {  
+    this.$el.append(this.template(1));
+    return this;
+  }
+  
+});
+
+
+/*AddGraphModalItemView = Backbone.View.extend({
+
+  tagName: 'p',
+
+  render: function() {  
+    this.$el.html('<label>lll</label>');
+    return this;
+  }
+
+});*/
