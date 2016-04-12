@@ -8,6 +8,7 @@
 <script src="js/project/views/graphsViews.js"></script> 
 <script src="js/project/models/graphsModel.js"></script> 
 <script src="js/project/collections/graphsCollection.js"></script> 
+<script src="js/project/helper.js"></script> 
 
 <script>
   var app = new APP.NavigationRouter();

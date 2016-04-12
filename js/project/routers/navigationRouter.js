@@ -20,21 +20,10 @@ APP.NavigationRouter = Backbone.Router.extend({
     var indexView = new APP.IndexView();
 
     if (indexView) {  
-      var initialGraphs = [
-                            { title: 'title 1', yMax: 200, yMin: 0, yPeriod: 10, xMax: 600,  xMin: 0, xPeriod: 10, dots: {} }, 
-                            { title: 'title 2', yMax: 200, yMin: 0, yPeriod: 10, xMax: 600,  xMin: 0, xPeriod: 10, dots: {} }, 
-                            { title: 'title 3', yMax: 200, yMin: 0, yPeriod: 10, xMax: 600,  xMin: 0, xPeriod: 10, dots: {} }
-                          ];
-
+      var initialGraphs = APP.helper.getInitialGraphs();
       new APP.GraphLinksView(initialGraphs);                               
-
-      var graphDefaultsKeys = APP.Graph.prototype.defaults, 
-          graphSimpleKeys = [];
-
-      for(key in graphDefaultsKeys) {
-        if(typeof graphDefaultsKeys[key] != 'object') { graphSimpleKeys.push(key) };
-      };
-     
+ 
+      var graphSimpleKeys = APP.helper.getSimpleKeys(APP.Graph.prototype.defaults);     
       new APP.AddGraphModalView(graphSimpleKeys);   
     };
   },
