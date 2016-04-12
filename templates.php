@@ -5,7 +5,7 @@
   </p>
 </script>
 
-<script type="text/template" id="addGraphTemplate">
+<script type="text/template" id="addGraphModalTemplate">
   <!-- Modal add graph-->
   <div class="modal fade" id="addGraphModal" tabindex="-1" role="dialog" aria-labelledby="addGraphLabel">
     <div class="modal-dialog" role="document">     
