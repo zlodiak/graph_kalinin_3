@@ -45,7 +45,7 @@ APP.AddGraphModalView = Backbone.View.extend({
 
   template: _.template($('#addGraphTemplate').html()),
 
-  initialize: function(graphSimpleKeys) { console.log('nin');
+  initialize: function(graphSimpleKeys) { 
     this.graphSimpleKeys = graphSimpleKeys;
     this.render();  
   },  

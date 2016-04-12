@@ -28,11 +28,11 @@ APP.NavigationRouter = Backbone.Router.extend({
 
       new APP.GraphLinksView(initialGraphs);                               
 
-      var graphDefaultsKeys = Object.keys(APP.Graph.prototype.defaults), 
+      var graphDefaultsKeys = APP.Graph.prototype.defaults, 
           graphSimpleKeys = [];
 
-      for(var i = 0; i < graphDefaultsKeys.length; i++) {
-        if(typeof graphDefaultsKeys[i] != 'object') { graphSimpleKeys.push(graphDefaultsKeys[i]) };
+      for(key in graphDefaultsKeys) {
+        if(typeof graphDefaultsKeys[key] != 'object') { graphSimpleKeys.push(key) };
       };
      
       new APP.AddGraphModalView(graphSimpleKeys);   
