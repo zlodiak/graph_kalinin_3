@@ -2,7 +2,7 @@ APP.IndexView = Backbone.View.extend({
   el: $('#contentContainer'), 
 
   initialize: function() { 
-    this.render();
+    
   },
 
   template: _.template($('#index').html()), 
@@ -10,19 +10,19 @@ APP.IndexView = Backbone.View.extend({
   render: function () {  console.dir(this.collection);
     $(this.el).html(this.template());
 
-    this.collection.each(function(model) {
+    this.collection.each(function(model) { 
       this.renderGraphLink(model);
     }, this );    
 
     return this;
   }, 
 
-  renderGraphLink: function(model) { 
+  renderGraphLink: function(model) { console.log(model);
     var graphLink = new APP.GraphLinkView({
       model: model
     });
 
-    this.$el.prepend(3333);
+    this.$el.find('#graphsList').prepend(graphLink.render().el);
   }  
 });
 
