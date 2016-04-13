@@ -1,16 +1,29 @@
 APP.IndexView = Backbone.View.extend({  
   el: $('#contentContainer'), 
 
-  initialize: function() {  
+  initialize: function() { 
     this.render();
   },
 
   template: _.template($('#index').html()), 
 
-  render: function () {  
+  render: function () {  console.dir(this.collection);
     $(this.el).html(this.template());
+
+    this.collection.each(function(model) {
+      this.renderGraphLink(model);
+    }, this );    
+
     return this;
-  }
+  }, 
+
+  renderGraphLink: function(model) { 
+    var graphLink = new APP.GraphLinkView({
+      model: model
+    });
+
+    this.$el.prepend(3333);
+  }  
 });
 
 APP.Page1View = Backbone.View.extend({
@@ -69,11 +82,3 @@ APP.Page5View = Backbone.View.extend({
 });
 
 
-/*pagesViews =  { 
-                indexView: new APP.IndexView(),
-                page1View: new APP.Page1View(),
-                page2View: new APP.Page2View(),
-                page3View: new APP.Page3View(),
-                page4View: new APP.Page4View(),
-                page5View: new APP.Page5View()
-              };*/

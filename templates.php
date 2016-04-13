@@ -1,7 +1,7 @@
 <script type="text/template" id="addGraphFieldTemplate">
   <p>
-    <label for="title"><%- field %></label>
-    <input class="form-control" id="222" name="222" type="text">
+    <label for="fld_<%= field %>"><%= field %></label>
+    <input class="form-control" id="fld_<%= field %>" name="fld_<%= field %>" type="text">
   </p>
 </script>
 
@@ -22,7 +22,7 @@
 
             <div class="modal-footer">
               <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
-              <button type="submit" class="btn btn-primary submit" value="Submit">Добавить</button>
+              <button type="submit" class="btn btn-primary submit" value="Submit" id="createGraphSubmit">Добавить</button>
             </div>
           </fieldset>
         </form>          

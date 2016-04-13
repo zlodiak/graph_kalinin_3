@@ -1,4 +1,4 @@
-APP.GraphList = Backbone.Collection.extend({
+APP.GraphCollection = Backbone.Collection.extend({
 
   model: APP.Graph//,
 

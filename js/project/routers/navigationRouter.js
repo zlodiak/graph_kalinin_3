@@ -12,20 +12,20 @@ APP.NavigationRouter = Backbone.Router.extend({
     "!/page5": "page5"
   },
 
-  initialize: function() { 
-    Backbone.history.start();
+  initialize: function() { console.log('ini r');    
+    Backbone.history.start();     
   },  
 
-  index: function () {  
-    var indexView = new APP.IndexView();
+  index: function () {     
+      if(!this.indexView){
+        // this.bookListView = new app.BookListView({collection:app.books});
+        this.indexView = new APP.IndexView({collection: new APP.GraphCollection(APP.helper.getInitialGraphs())});
+      } else {
+        this.indexView.render();         
+      };
 
-    if (indexView) {  
-      var initialGraphs = APP.helper.getInitialGraphs();
-      new APP.GraphLinksView(initialGraphs);                               
- 
       var graphSimpleKeys = APP.helper.getSimpleKeys(APP.Graph.prototype.defaults);     
-      new APP.AddGraphModalView(graphSimpleKeys);   
-    };
+      new APP.AddGraphModalView(graphSimpleKeys);      
   },
 
   page1: function () {  

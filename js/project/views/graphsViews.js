@@ -3,14 +3,15 @@ APP.GraphLinksView = Backbone.View.extend({
   el: '#graphsList',
 
   initialize: function(initialGraphs) { 
-    this.collection = new APP.GraphList(initialGraphs);
-    this.render();  
+
   },
 
   render: function() {  
-    this.collection.each(function(item) {
-      this.renderGraphLink(item);
-    }, this );
+    if(this.collection) {
+      this.collection.each(function(item) {
+        this.renderGraphLink(item);
+      }, this );
+    };
   }, 
 
   renderGraphLink: function(item) { 
@@ -19,7 +20,27 @@ APP.GraphLinksView = Backbone.View.extend({
     });
 
     this.$el.prepend(graphLink.render().el);
-  }  
+  }, 
+
+  createGraph: function() {
+    var newGraphData = {
+      title: $('#fld_title').val(),
+      yMax: $('#fld_yMax').val(),
+      yMin: $('#fld_yMin').val(),
+      yPeriod: $('#fld_yPeriod').val(),
+      xMax: $('#fld_xMax').val(),
+      xMin: $('#fld_xMin').val(),
+      xPeriod: $('#fld_xPeriod').val(),
+      dots: {}
+    };
+
+    var newGraph = new APP.Graph(newGraphData);
+
+    if(this.collection.add(newGraph)) { 
+      $('#addGraphModal').modal('hide');      
+    };
+
+  }    
 
 });
 
@@ -63,7 +84,33 @@ APP.AddGraphModalView = Backbone.View.extend({
   renderAddGraphModalField: function(field) { 
     var fieldView = new APP.AddGraphModalFieldView(field);
     this.$el.find('#addGraphModalFields').append(fieldView.render().el);
-  }  
+  },
+
+  events:{
+    'click #createGraphSubmit': 'createGraph'
+  },
+
+  createGraph: function() {
+    var newGraphData = {
+      title: $('#fld_title').val(),
+      yMax: $('#fld_yMax').val(),
+      yMin: $('#fld_yMin').val(),
+      yPeriod: $('#fld_yPeriod').val(),
+      xMax: $('#fld_xMax').val(),
+      xMin: $('#fld_xMin').val(),
+      xPeriod: $('#fld_xPeriod').val(),
+      dots: {}
+    };
+
+    var newGraph = new APP.Graph(newGraphData);
+    //newGraph.save();
+
+    if(this.collection.add(newGraph)) { 
+      $('#addGraphModal').modal('hide');      
+    };
+
+    console.log(this.collection);
+  }   
 
 });
 
