@@ -6,7 +6,7 @@
 </script>
 
 <script type="text/template" id="addGraphModalTemplate">
-  <!-- Modal add graph-->
+  <!-- Modal add graph -->
   <div class="modal fade" id="addGraphModal" tabindex="-1" role="dialog" aria-labelledby="addGraphLabel">
     <div class="modal-dialog" role="document">     
       <div class="modal-content">
@@ -31,41 +31,43 @@
   </div>
 </script>
 
-<script type="text/template" id="index">
-  <div class="index">
-    <div class="list-group graphs" id="graphsList">
-      <button type="button" class="btn btn-default btn-add pull-right" aria-label="Left Align" data-toggle="modal" data-target="#addGraphModal">
-        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-      </button>      
-    </div>      
+<script type="text/template" id="graphsListTemplate">
+  <button type="button" class="btn btn-default btn-add pull-right" aria-label="Left Align" data-toggle="modal" data-target="#addGraphModal">
+    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+  </button>         
+</script>
+
+<script type="text/template" id="indexTemplate">
+  <div class="index" id="indexPage">
+     index page
   </div>
 </script>
 
-<script type="text/template" id="page1">
+<script type="text/template" id="page1Template">
   <div class="page1">
     page 1
   </div>
 </script>
 
-<script type="text/template" id="page2">
+<script type="text/template" id="page2Template">
   <div class="page2">
     page 2
   </div>
 </script>
 
-<script type="text/template" id="page3">
+<script type="text/template" id="page3Template">
   <div class="page3">
     page 3
   </div>
 </script>
 
-<script type="text/template" id="page4">
+<script type="text/template" id="page4Template">
   <div class="page4">
     page 4
   </div>
 </script>
 
-<script type="text/template" id="page5">
+<script type="text/template" id="page5Template">
   <div class="page5">
     page 5
   </div>

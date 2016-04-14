@@ -14,7 +14,7 @@
 
     <?php require('templates.php'); ?>
 
-    <?php require('modals.php'); ?>
+    <?php // require('modals.php'); ?>
 
     <?php require('scripts.php'); ?>
   </body>

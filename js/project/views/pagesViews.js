@@ -1,86 +1,93 @@
 APP.IndexView = Backbone.View.extend({  
+
   el: $('#contentContainer'), 
 
-  initialize: function() { 
-    this.listenTo( this.collection, 'add', this.render );
-  },
+  initialize: function() {
+    
 
-  template: _.template($('#index').html()), 
+            
 
-  render: function () {  console.log('rr');
-    $(this.el).html(this.template());
-    this.$el.find('#graphsList').html();
-    $('#addGraphModal').modal('hide');    
+    //this.addGraphModalView = new APP.AddGraphModalView();
+    //$(this.el).append(this.addGraphModalView.render());
+  },    
 
-    this.collection.each(function(model) { 
-      this.renderGraphLink(model);
-    }, this );    
+  template: _.template($('#indexTemplate').html()), 
+
+  render: function () { 
+    $(this.el).append(this.template());  
+
+    var graphCollection = new APP.GraphCollection(APP.helper.getInitialGraphs());
+    this.graphLinksView = new APP.GraphLinksView({collection: graphCollection});     
+    $(this.el).children().first().html(this.graphLinksView.render().el);  
 
     return this;
-  }, 
+  }
 
-  renderGraphLink: function(model) { console.log(model);
-    var graphLink = new APP.GraphLinkView({
-      model: model
-    });
-
-    this.$el.find('#graphsList').prepend(graphLink.render().el);
-  }  
 });
 
 APP.Page1View = Backbone.View.extend({
+
   el: $('#contentContainer'), 
 
-  template: _.template($('#page1').html()), 
+  template: _.template($('#page1Template').html()), 
 
   render: function () {   
     $(this.el).html(this.template());
     return this;
   }
+
 });
 
 APP.Page2View = Backbone.View.extend({
+
   el: $('#contentContainer'), 
 
-  template: _.template($('#page2').html()), 
+  template: _.template($('#page2Template').html()), 
 
   render: function () {   
     $(this.el).html(this.template());
     return this;
   }
+
 });
 
 APP.Page3View = Backbone.View.extend({
+
   el: $('#contentContainer'), 
 
-  template: _.template($('#page3').html()), 
+  template: _.template($('#page3Template').html()), 
 
   render: function () {   
     $(this.el).html(this.template());
     return this;
   }
+
 });
 
 APP.Page4View = Backbone.View.extend({
+
   el: $('#contentContainer'), 
 
-  template: _.template($('#page4').html()), 
+  template: _.template($('#page4Template').html()), 
 
   render: function () {   
     $(this.el).html(this.template());
     return this;
   }
+
 });
 
 APP.Page5View = Backbone.View.extend({
+
   el: $('#contentContainer'), 
 
-  template: _.template($('#page5').html()), 
+  template: _.template($('#page5Template').html()), 
 
   render: function () {   
     $(this.el).html(this.template());
     return this;
   }
+
 });
 
 

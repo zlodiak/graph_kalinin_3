@@ -17,15 +17,11 @@ APP.NavigationRouter = Backbone.Router.extend({
   },  
 
   index: function () {     
-    if(!this.indexView) {
-      var graphCollection = new APP.GraphCollection(APP.helper.getInitialGraphs());
-      this.indexView = new APP.IndexView({collection: graphCollection});
-    }
-    
-    this.indexView.render();         
+    var indexView = new APP.IndexView();
 
-    //var graphSimpleKeys = APP.helper.getSimpleKeys(APP.Graph.prototype.defaults);     
-    new APP.AddGraphModalView({collection: graphCollection});      
+    if (indexView) {  
+      indexView.render();
+    }    
   },
 
   page1: function () {  
