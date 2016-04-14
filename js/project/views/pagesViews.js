@@ -2,13 +2,15 @@ APP.IndexView = Backbone.View.extend({
   el: $('#contentContainer'), 
 
   initialize: function() { 
-    
+    this.listenTo( this.collection, 'add', this.render );
   },
 
   template: _.template($('#index').html()), 
 
-  render: function () {  console.dir(this.collection);
+  render: function () {  console.log('rr');
     $(this.el).html(this.template());
+    this.$el.find('#graphsList').html();
+    $('#addGraphModal').modal('hide');    
 
     this.collection.each(function(model) { 
       this.renderGraphLink(model);

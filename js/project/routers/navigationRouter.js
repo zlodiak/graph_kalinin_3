@@ -24,8 +24,8 @@ APP.NavigationRouter = Backbone.Router.extend({
     
     this.indexView.render();         
 
-    var graphSimpleKeys = APP.helper.getSimpleKeys(APP.Graph.prototype.defaults);     
-    new APP.AddGraphModalView(graphSimpleKeys);      
+    //var graphSimpleKeys = APP.helper.getSimpleKeys(APP.Graph.prototype.defaults);     
+    new APP.AddGraphModalView({collection: graphCollection});      
   },
 
   page1: function () {  

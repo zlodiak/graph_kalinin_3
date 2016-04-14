@@ -1,9 +1,9 @@
-APP.GraphLinksView = Backbone.View.extend({
+/*APP.GraphLinksView = Backbone.View.extend({
 
   el: '#graphsList',
 
-  initialize: function(initialGraphs) { 
-
+  initialize: function() { 
+    
   },
 
   render: function() {  
@@ -43,7 +43,7 @@ APP.GraphLinksView = Backbone.View.extend({
   }    
 
 });
-
+*/
 
 APP.GraphLinkView = Backbone.View.extend({
 
@@ -66,7 +66,7 @@ APP.AddGraphModalView = Backbone.View.extend({
 
   template: _.template($('#addGraphModalTemplate').html()),
 
-  initialize: function(graphSimpleKeys) { 
+  initialize: function(graphSimpleKeys) {     
     this.graphSimpleKeys = graphSimpleKeys;
     this.render();  
   },  
@@ -102,13 +102,8 @@ APP.AddGraphModalView = Backbone.View.extend({
       dots: {}
     };
 
-    var newGraph = new APP.Graph(newGraphData);
-    //newGraph.save();
-
-    if(this.collection.add(newGraph)) { 
-      $('#addGraphModal').modal('hide');      
-    };
-
+    var newGraph = new APP.Graph();
+    this.collection.add(newGraph);
     console.log(this.collection);
   }   
 
