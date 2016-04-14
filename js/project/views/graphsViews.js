@@ -55,7 +55,7 @@ APP.GraphLinksView = Backbone.View.extend({
 
   template: _.template($('#graphsListTemplate').html()),
 
-  render: function() {  console.log(this.$el);  
+  render: function() {  
     this.$el.append(this.template());
 
     this.collection.each(function(model) { 
@@ -95,30 +95,39 @@ APP.GraphLinkView = Backbone.View.extend({
 
 APP.AddGraphModalView = Backbone.View.extend({
 
-  tagNmae: 'div',
+  tagName: 'div',
 
   template: _.template($('#addGraphModalTemplate').html()), 
 
+  initialize: function() {
+    this.graphSimpleKeys = APP.helper.getSimpleKeys(APP.Graph.prototype.defaults); 
+  },  
+
   render: function() {  
     $('#indexPage').append(this.template());
+
+    for (var key in this.graphSimpleKeys) { this.renderField(this.graphSimpleKeys[key]) };
+
     return this;
-  } 
+  }, 
+
+  renderField: function(key) {      
+    var addGraphModalFieldView = new APP.AddGraphModalFieldView();
+
+    $('#addGraphModalFields').prepend(addGraphModalFieldView.render(key).el);
+  }   
 
 });
 
 
 APP.AddGraphModalFieldView = Backbone.View.extend({
 
-  initialize: function(field) {
-    this.field = field;    
-  },  
-
   tagName: 'p',
 
   template: _.template($('#addGraphFieldTemplate').html()),
 
-  render: function() {  
-    this.$el.html(this.template({field: this.field}));
+  render: function(field) {  
+    this.$el.html(this.template({field: field}));
     return this;
   }
 
