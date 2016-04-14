@@ -4,7 +4,7 @@ APP.IndexView = Backbone.View.extend({
 
   initialize: function() {
     var graphCollection = new APP.GraphCollection(APP.helper.getInitialGraphs());
-    
+
     this.graphLinksView = new APP.GraphLinksView({collection: graphCollection});         
     this.addGraphModalView = new APP.AddGraphModalView();    
   },    
@@ -14,7 +14,7 @@ APP.IndexView = Backbone.View.extend({
   render: function () { 
     $(this.el).append(this.template());  
     $(this.el).children().first().html(this.graphLinksView.render().el);  
-    $(this.el).append(this.addGraphModalView.render());
+    $(this.el).append(this.addGraphModalView.render().el);
     return this;
   }
 

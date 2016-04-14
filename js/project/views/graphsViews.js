@@ -95,27 +95,48 @@ APP.GraphLinkView = Backbone.View.extend({
 
 APP.AddGraphModalView = Backbone.View.extend({
 
-  tagName: 'div',
-
-  template: _.template($('#addGraphModalTemplate').html()), 
-
   initialize: function() {
     this.graphSimpleKeys = APP.helper.getSimpleKeys(APP.Graph.prototype.defaults); 
   },  
 
+  tagName: 'div',
+
+  template: _.template($('#addGraphModalTemplate').html()), 
+
+  events:{
+    'click #createGraphSubmit' : 'createGraph'
+  },  
+
   render: function() {  
-    $('#indexPage').append(this.template());
+    this.$el.html(this.template());
 
     for (var key in this.graphSimpleKeys) { this.renderField(this.graphSimpleKeys[key]) };
-
+      
     return this;
   }, 
 
   renderField: function(key) {      
     var addGraphModalFieldView = new APP.AddGraphModalFieldView();
 
-    $('#addGraphModalFields').prepend(addGraphModalFieldView.render(key).el);
-  }   
+    this.$el.find('#addGraphModalFields').append(addGraphModalFieldView.render(key).el);
+  }, 
+
+  createGraph: function(e) {
+    e.preventDefault();
+
+    var newGraphData = {
+      title: this.$el.find('#fld_title').val(),
+      yMax: this.$el.find('#fld_yMax').val(),
+      yMin: this.$el.find('#fld_yMin').val(),
+      yPeriod: this.$el.find('#fld_yPeriod').val(),
+      xMax: this.$el.find('#fld_xMax').val(),
+      xMin: this.$el.find('#fld_xMin').val(),
+      xPeriod: this.$el.find('#fld_xPeriod').val(),
+      dots: {}
+    };
+
+    console.dir(newGraphData);  
+  }  
 
 });
 
