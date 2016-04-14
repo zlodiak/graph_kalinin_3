@@ -84,8 +84,9 @@ APP.GraphLinkView = Backbone.View.extend({
   className: 'list-group-item',
 
   render: function() {  
-    this.$el.html(this.model.attributes.title);
-    this.$el.attr('href', this.model.attributes.title);
+    var title = this.model.attributes.title;
+
+    this.$el.html(title).attr('href', title);
     return this;
   }
 
@@ -94,12 +95,12 @@ APP.GraphLinkView = Backbone.View.extend({
 
 APP.AddGraphModalView = Backbone.View.extend({
 
-  el: 'div',
+  tagNmae: 'div',
 
   template: _.template($('#addGraphModalTemplate').html()), 
 
   render: function() {  
-    $('#contentContainer').append(this.template());
+    $('#indexPage').append(this.template());
     return this;
   } 
 

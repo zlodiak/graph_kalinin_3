@@ -3,23 +3,18 @@ APP.IndexView = Backbone.View.extend({
   el: $('#contentContainer'), 
 
   initialize: function() {
-    
+    var graphCollection = new APP.GraphCollection(APP.helper.getInitialGraphs());
+    this.graphLinksView = new APP.GraphLinksView({collection: graphCollection});         
 
-            
-
-    //this.addGraphModalView = new APP.AddGraphModalView();
-    //$(this.el).append(this.addGraphModalView.render());
+    this.addGraphModalView = new APP.AddGraphModalView();    
   },    
 
   template: _.template($('#indexTemplate').html()), 
 
   render: function () { 
     $(this.el).append(this.template());  
-
-    var graphCollection = new APP.GraphCollection(APP.helper.getInitialGraphs());
-    this.graphLinksView = new APP.GraphLinksView({collection: graphCollection});     
     $(this.el).children().first().html(this.graphLinksView.render().el);  
-
+    $(this.el).append(this.addGraphModalView.render());
     return this;
   }
 
