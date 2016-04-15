@@ -1,51 +1,8 @@
-/*APP.GraphLinksView = Backbone.View.extend({
-
-  el: '#graphsList',
-
-  initialize: function() { 
-    
-  },
-
-  render: function() {  
-    if(this.collection) {
-      this.collection.each(function(item) {
-        this.renderGraphLink(item);
-      }, this );
-    };
-  }, 
-
-  renderGraphLink: function(item) { 
-    var graphLink = new APP.GraphLinkView({
-      model: item
-    });
-
-    this.$el.prepend(graphLink.render().el);
-  }, 
-
-  createGraph: function() {
-    var newGraphData = {
-      title: $('#fld_title').val(),
-      yMax: $('#fld_yMax').val(),
-      yMin: $('#fld_yMin').val(),
-      yPeriod: $('#fld_yPeriod').val(),
-      xMax: $('#fld_xMax').val(),
-      xMin: $('#fld_xMin').val(),
-      xPeriod: $('#fld_xPeriod').val(),
-      dots: {}
-    };
-
-    var newGraph = new APP.Graph(newGraphData);
-
-    if(this.collection.add(newGraph)) { 
-      $('#addGraphModal').modal('hide');      
-    };
-
-  }    
-
-});
-*/
-
 APP.GraphLinksView = Backbone.View.extend({
+
+  initialize: function() {
+    this.listenTo( this.collection, 'add', this.render );
+  }, 
 
   tagName: 'div',   
 
@@ -56,7 +13,7 @@ APP.GraphLinksView = Backbone.View.extend({
   template: _.template($('#graphsListTemplate').html()),
 
   render: function() {  
-    this.$el.append(this.template());
+    this.$el.html(this.template());
 
     this.collection.each(function(model) { 
       this.renderGraphLinkView(model);
@@ -135,7 +92,15 @@ APP.AddGraphModalView = Backbone.View.extend({
       dots: {}
     };
 
-    console.dir(newGraphData);  
+    var newGraph = new APP.Graph(newGraphData);
+
+    if (newGraph.isValid()) {
+      APP.graphCollection.add(newGraph);      
+      this.$el.find('#addGraphModal').modal('hide');      
+      this.$el.find('#addGraphModal input.form-control').val('');      
+    } else {
+      console.log(newGraph.validationError);
+    };   
   }  
 
 });
