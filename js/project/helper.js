@@ -10,7 +10,7 @@ APP.helper = {
     return initialGraphs;
   },
 
-  changeColorFields: function(selector, borderColor) {
+  changeBorderColorElem: function(selector, borderColor) {
     $(selector).css({
       border: '1px solid ' + borderColor
     });  
