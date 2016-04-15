@@ -97,11 +97,17 @@ APP.AddGraphModalView = Backbone.View.extend({
     if (newGraph.isValid()) {
       APP.graphCollection.add(newGraph);      
       this.$el.find('#addGraphModal').modal('hide');      
-      this.$el.find('#addGraphModal input.form-control').val('');      
+      this.$el.find('#addGraphModal input.form-control').val('');   
+      APP.helper.changeColorFields('#addGraphModal input.form-control', '#ccc');   
+
     } else {
-      console.log(newGraph.validationError);
+      var errorsFeildsArr = newGraph.validationError;
+
+      APP.helper.changeColorFields('#addGraphModal input.form-control', '#ccc');
+
+      for(var i in errorsFeildsArr) { APP.helper.changeColorFields('#fld_' + errorsFeildsArr[i], '#f00') };
     };   
-  }  
+  }
 
 });
 

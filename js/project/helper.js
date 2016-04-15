@@ -10,6 +10,12 @@ APP.helper = {
     return initialGraphs;
   },
 
+  changeColorFields: function(selector, borderColor) {
+    $(selector).css({
+      border: '1px solid ' + borderColor
+    });  
+  },
+
   getSimpleKeys: function(allKeysObj) {
     var simpleKeysArr = [];
 
