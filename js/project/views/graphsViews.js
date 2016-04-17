@@ -2,6 +2,7 @@ APP.GraphLinksView = Backbone.View.extend({
 
   initialize: function() {
     this.listenTo( this.collection, 'add', this.render );
+    this.listenTo( this.collection, 'remove', this.render );
   }, 
 
   tagName: 'div',   
@@ -28,24 +29,36 @@ APP.GraphLinksView = Backbone.View.extend({
     });
 
     this.$el.prepend(graphLinkView.render().el);
-  }      
-
-  
-
+  }
 });
 
 APP.GraphLinkView = Backbone.View.extend({
 
-  tagName: 'a',
+  template: _.template($('#graphsListItemTemplate').html()),  
+
+  tagName: 'div',
 
   className: 'list-group-item',
 
   render: function() {  
     var title = this.model.attributes.title;
 
-    this.$el.html(title).attr('href', title);
+    this.$el.html(this.template({title: title}));
     return this;
-  }
+  },
+
+  events:{
+    'click .glyphicon-edit' : 'edit',
+    'click .glyphicon-remove' : 'remove'
+  },
+
+  edit: function() {
+    console.log('edit');
+  },
+
+  remove: function() {
+    APP.graphCollection.remove(APP.graphCollection.where({title: this.model.attributes.title}));
+  }  
 
 });
 

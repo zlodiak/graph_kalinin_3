@@ -41,6 +41,23 @@ INFO:
 		cursor: pointer;
 	}
 
+		.graphs .graph_title{
+			color: #777;
+		}
+
+		.graphs .action{
+			margin-left: 10px;
+			cursor: pointer;
+		}
+
+		.graphs .glyphicon-remove{
+			color: red;
+		}
+
+		.graphs .glyphicon-edit{
+			color: orange;
+		}						
+
 	.graphs .badge{
 		display: none;
 	}
