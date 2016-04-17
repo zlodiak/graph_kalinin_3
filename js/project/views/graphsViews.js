@@ -99,12 +99,10 @@ APP.AddGraphModalView = Backbone.View.extend({
       this.$el.find('#addGraphModal').modal('hide');      
       this.$el.find('#addGraphModal input.form-control').val('');   
       APP.helper.changeBorderColorElem('#addGraphModal input.form-control', '#ccc');   
-
     } else {
       var errorsFeildsArr = newGraph.validationError;
 
       APP.helper.changeBorderColorElem('#addGraphModal input.form-control', '#ccc');
-
       for(var i in errorsFeildsArr) { APP.helper.changeBorderColorElem('#fld_' + errorsFeildsArr[i], '#f00') };
     };   
   }

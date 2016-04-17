@@ -31,6 +31,10 @@
   </div>
 </script>
 
+<script type="text/template" id="graphsListItemTemplate">
+  <a href="#"><%= title %>aa</a>
+</script>
+
 <script type="text/template" id="graphsListTemplate">
   <button type="button" class="btn btn-default btn-add pull-right" aria-label="Left Align" data-toggle="modal" data-target="#addGraphModal">
     <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
