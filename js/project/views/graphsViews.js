@@ -32,6 +32,7 @@ APP.GraphLinksView = Backbone.View.extend({
   }
 });
 
+
 APP.GraphLinkView = Backbone.View.extend({
 
   template: _.template($('#graphsListItemTemplate').html()),  
@@ -41,9 +42,10 @@ APP.GraphLinkView = Backbone.View.extend({
   className: 'list-group-item',
 
   render: function() {  
-    var title = this.model.attributes.title;
-
-    this.$el.html(this.template({title: title}));
+    this.$el.html(this.template({
+      title: this.model.attributes.title,
+      cid: this.model.cid
+    }));
     return this;
   },
 
@@ -56,8 +58,10 @@ APP.GraphLinkView = Backbone.View.extend({
     console.log('edit');
   },
 
-  remove: function() {
-    APP.graphCollection.remove(APP.graphCollection.where({title: this.model.attributes.title}));
+  remove: function() {  
+    if(this.model.destroy()) {
+      APP.graphCollection.remove(APP.graphCollection.where({cid: this.model.cid}));
+    };    
   }  
 
 });

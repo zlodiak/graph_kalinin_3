@@ -32,7 +32,7 @@
 </script>
 
 <script type="text/template" id="graphsListItemTemplate">
-  <a class="graph_title" href="#<%= title %>"><%= title %></a>
+  <a class="graph_title" href="#<%= title %>" id="graphTitle_<%= cid %>"><%= title %></a>
   <div class="action glyphicon glyphicon-remove pull-right"></div>
   <div class="action glyphicon glyphicon-edit pull-right"></div>
 </script>
