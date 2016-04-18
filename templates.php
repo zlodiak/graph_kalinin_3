@@ -32,10 +32,13 @@
 </script>
 
 <script type="text/template" id="graphsListItemTemplate">
-  <input class="edit_field" type="text" value="<%= title %>" />
-  <a class="graph_title" href="#<%= title %>" id="graphTitle_<%= cid %>"><%= title %></a>
-  <div class="action glyphicon glyphicon-remove pull-right"></div>
-  <div class="action glyphicon glyphicon-edit pull-right"></div>  
+  <input class="edit_field hide" type="text" value="<%= title %>" />
+
+  <div class="display_block">
+    <a class="graph_title" href="#<%= title %>" id="graphTitle_<%= cid %>"><%= title %></a>
+    <div class="action glyphicon glyphicon-remove pull-right"></div>
+    <div class="action glyphicon glyphicon-edit pull-right"></div>  
+  </div>
 </script>
 
 <script type="text/template" id="graphsListTemplate">

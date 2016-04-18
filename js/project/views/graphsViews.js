@@ -13,7 +13,7 @@ APP.GraphLinksView = Backbone.View.extend({
 
   template: _.template($('#graphsListTemplate').html()),
 
-  render: function() {  
+  render: function() {  console.dir(this.collection);
     this.$el.html(this.template());
 
     this.collection.each(function(model) { 
@@ -36,15 +36,7 @@ APP.GraphLinksView = Backbone.View.extend({
 APP.GraphLinkView = Backbone.View.extend({
 
   initialize: function() {
-/*    this.editFieldElem = this.$el.find('.edit_Field');
-    this.titleElem = this.$el.find('.graph_title');
-    this.removeIconElem = this.$el.find('.glyphicon-remove');
-    this.editIconElem = this.$el.find('.glyphicon-edit');
 
-    console.log(this.editFieldElem);
-    console.log(this.titleElem);
-    console.log(this.removeIconElem);
-    console.log(this.editIconElem);*/
   },    
 
   template: _.template($('#graphsListItemTemplate').html()),  
@@ -58,26 +50,58 @@ APP.GraphLinkView = Backbone.View.extend({
       title: this.model.attributes.title,
       cid: this.model.cid
     }));
+
+    this.editFieldElem = this.$el.find('.edit_field');
+    this.displayBlock = this.$el.find('.display_block');
+    //this.graphTitle = this.$el.find('.graph_title');
+
     return this;
   },
 
   events:{
+    'keypress .edit_field': 'EnterKeyHandler',
+    'keydown .edit_field': 'EscKeyHandler',    
     'blur .edit_field': 'editEnd',
     'click .glyphicon-edit' : 'editBegin',
     'click .glyphicon-remove' : 'remove'
   },
 
-  editBegin: function() {
-    this.$el.find('.edit_field').show();
-    this.$el.find('.graph_title').hide();
-    this.$el.find('.glyphicon-remove').hide();
-    this.$el.find('.glyphicon-edit').hide();
+  editEnd: function() { console.log('e end');
+    this.editFieldElem.addClass('hide').removeClass('show');
+    this.displayBlock.addClass('show').removeClass('hide');
+    //this.graphTitle.html(this.editFieldElem.val());
+
+    var title = this.$el.find('.graph_title'),
+        title = $.trim(title);    
+        console.log(title);
+
+    if (title) {
+      this.model.save({ title: title });
+    }    
+  },
+
+  editBegin: function() { console.log('e beg');
+    this.editFieldElem.addClass('show').removeClass('hide').focus();
+    this.displayBlock.addClass('hide').removeClass('show');    
   },
 
   remove: function() {  
     if(this.model.destroy()) {
       APP.graphCollection.remove(APP.graphCollection.where({cid: this.model.cid}));
     };    
+  }, 
+
+  EnterKeyHandler: function (e) { 
+    if (e.which === 13) {
+      this.editEnd();
+    }
+  },  
+
+  EscKeyHandler: function (e) {
+    if (e.which === 27) { console.log('esc press');
+      this.editFieldElem.addClass('hide').removeClass('show');
+      this.displayBlock.addClass('show').removeClass('hide');
+    }
   }  
 
 });
