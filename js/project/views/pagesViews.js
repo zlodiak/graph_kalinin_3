@@ -3,7 +3,9 @@ APP.IndexView = Backbone.View.extend({
   el: $('#contentContainer'), 
 
   initialize: function() {
-    APP.graphCollection = new APP.GraphCollection(APP.helper.getInitialGraphs());
+    if(!APP.graphCollection) {
+      APP.graphCollection = new APP.GraphCollection(APP.helper.getInitialGraphs());
+    };    
 
     this.graphLinksView = new APP.GraphLinksView({collection: APP.graphCollection});         
     this.addGraphModalView = new APP.AddGraphModalView();    
@@ -12,7 +14,7 @@ APP.IndexView = Backbone.View.extend({
   template: _.template($('#indexTemplate').html()), 
 
   render: function () { 
-    $(this.el).append(this.template());  
+    $(this.el).html(this.template());  
     $(this.el).children().first().html(this.graphLinksView.render().el);  
     $(this.el).append(this.addGraphModalView.render().el);
     return this;
