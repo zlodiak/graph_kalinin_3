@@ -151,7 +151,7 @@ APP.AddGraphModalView = Backbone.View.extend({
     var newGraph = new APP.Graph(newGraphData);
 
     if (newGraph.isValid()) {
-      APP.graphCollection.add(newGraph);      
+      if(APP.graphCollection.add(newGraph)) { newGraph.save() };            
       this.$el.find('#addGraphModal').modal('hide');      
       this.$el.find('#addGraphModal input.form-control').val('');   
       APP.helper.changeBorderColorElem('#addGraphModal input.form-control', '#ccc');   
