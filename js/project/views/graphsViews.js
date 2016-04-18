@@ -13,7 +13,7 @@ APP.GraphLinksView = Backbone.View.extend({
 
   template: _.template($('#graphsListTemplate').html()),
 
-  render: function() {  console.dir(this.collection);
+  render: function() {  
     this.$el.html(this.template());
 
     this.collection.each(function(model) { 
@@ -36,7 +36,7 @@ APP.GraphLinksView = Backbone.View.extend({
 APP.GraphLinkView = Backbone.View.extend({
 
   initialize: function() {
-
+    this.listenTo(this.model, 'change', this.render);
   },    
 
   template: _.template($('#graphsListItemTemplate').html()),  
@@ -66,21 +66,19 @@ APP.GraphLinkView = Backbone.View.extend({
     'click .glyphicon-remove' : 'remove'
   },
 
-  editEnd: function() { console.log('e end');
+  editEnd: function() { 
     this.editFieldElem.addClass('hide').removeClass('show');
     this.displayBlock.addClass('show').removeClass('hide');
-    //this.graphTitle.html(this.editFieldElem.val());
 
-    var title = this.$el.find('.graph_title'),
+    var title = this.$el.find('.edit_field').val(),
         title = $.trim(title);    
-        console.log(title);
 
     if (title) {
       this.model.save({ title: title });
     }    
   },
 
-  editBegin: function() { console.log('e beg');
+  editBegin: function() { 
     this.editFieldElem.addClass('show').removeClass('hide').focus();
     this.displayBlock.addClass('hide').removeClass('show');    
   },
@@ -98,7 +96,8 @@ APP.GraphLinkView = Backbone.View.extend({
   },  
 
   EscKeyHandler: function (e) {
-    if (e.which === 27) { console.log('esc press');
+    if (e.which === 27) { 
+      this.editFieldElem.val(this.model.get('title'))
       this.editFieldElem.addClass('hide').removeClass('show');
       this.displayBlock.addClass('show').removeClass('hide');
     }
