@@ -39,6 +39,7 @@ INFO:
 
 	.graphs .list-group-item{
 		cursor: pointer;
+		min-height: 40px;
 	}
 
 		.graphs .graph_title{
@@ -56,7 +57,15 @@ INFO:
 
 		.graphs .glyphicon-edit{
 			color: orange;
-		}						
+		}			
+
+		.graphs .edit_field{
+			display: none;
+			height: 20px;
+			overflow: hidden;
+			padding: 0 4px;
+			width: 100%;
+		}			
 
 	.graphs .badge{
 		display: none;

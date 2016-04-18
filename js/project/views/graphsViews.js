@@ -35,6 +35,18 @@ APP.GraphLinksView = Backbone.View.extend({
 
 APP.GraphLinkView = Backbone.View.extend({
 
+  initialize: function() {
+/*    this.editFieldElem = this.$el.find('.edit_Field');
+    this.titleElem = this.$el.find('.graph_title');
+    this.removeIconElem = this.$el.find('.glyphicon-remove');
+    this.editIconElem = this.$el.find('.glyphicon-edit');
+
+    console.log(this.editFieldElem);
+    console.log(this.titleElem);
+    console.log(this.removeIconElem);
+    console.log(this.editIconElem);*/
+  },    
+
   template: _.template($('#graphsListItemTemplate').html()),  
 
   tagName: 'div',
@@ -50,12 +62,16 @@ APP.GraphLinkView = Backbone.View.extend({
   },
 
   events:{
-    'click .glyphicon-edit' : 'edit',
+    'blur .edit_field': 'editEnd',
+    'click .glyphicon-edit' : 'editBegin',
     'click .glyphicon-remove' : 'remove'
   },
 
-  edit: function() {
-    console.log('edit');
+  editBegin: function() {
+    this.$el.find('.edit_field').show();
+    this.$el.find('.graph_title').hide();
+    this.$el.find('.glyphicon-remove').hide();
+    this.$el.find('.glyphicon-edit').hide();
   },
 
   remove: function() {  
