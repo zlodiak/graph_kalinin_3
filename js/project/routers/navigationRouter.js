@@ -2,18 +2,21 @@ window.APP = window.APP || {};
 
 APP.NavigationRouter = Backbone.Router.extend({
   routes: {
-    "": "index", 
-    "!/": "index", 
-    "!/index": "index", 
-    "!/page1": "page1", 
-    "!/page2": "page2", 
-    "!/page3": "page3", 
-    "!/page4": "page4", 
-    "!/page5": "page5"
+    "": "index",  
+    "index": "index", 
+    "page1": "page1", 
+    "page2": "page2", 
+    "page3": "page3", 
+    "page4": "page4", 
+    "page5": "page5", 
+    "graph/:graph_id": "graph", 
+    "*fallback": "error404"
   },
 
   initialize: function() { 
-    Backbone.history.start();     
+    Backbone.history.start();  
+    //Backbone.history.start({root: '/js/EXAMPLES/graphKalinin3/'});  
+    //if(!Backbone.history.start()) app.navigate('error404', {trigger:true});   
   },  
 
   index: function () {     
@@ -62,6 +65,22 @@ APP.NavigationRouter = Backbone.Router.extend({
     if (page5View) {  
       page5View.render();
     }
-  }        
+  }, 
+
+  graph: function (graph_id) {  console.log('gr');
+    var graphView = new APP.GraphView();
+
+    if (graphView) {  
+      graphView.render(graph_id);
+    }
+  },   
+
+  error404: function () {  
+    var error404View = new APP.Error404View();
+
+    if (error404View) {  
+      error404View.render();
+    }
+  }             
         
 });

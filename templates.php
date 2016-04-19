@@ -67,7 +67,8 @@
 
 <script type="text/template" id="page3Template">
   <div class="page3">
-    page 3
+    page 3 
+    <a href="#page5">page5</a>
   </div>
 </script>
 
@@ -80,5 +81,18 @@
 <script type="text/template" id="page5Template">
   <div class="page5">
     page 5
+  </div>
+</script>
+
+<script type="text/template" id="graphTemplate">
+  <div class="graph">
+    graph: <%= graph_id %>
+  </div>
+</script>
+
+
+<script type="text/template" id="error404Template">
+  <div class="error404">
+    error404
   </div>
 </script>

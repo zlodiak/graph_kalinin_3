@@ -89,4 +89,29 @@ APP.Page5View = Backbone.View.extend({
 
 });
 
+APP.GraphView = Backbone.View.extend({
 
+  el: $('#contentContainer'), 
+
+  template: _.template($('#graphTemplate').html()), 
+
+  render: function (graph_id) {   
+    $(this.el).html(this.template({graph_id: graph_id}));
+    return this;
+  }
+
+});
+
+
+APP.Error404View = Backbone.View.extend({
+
+  el: $('#contentContainer'), 
+
+  template: _.template($('#error404Template').html()), 
+
+  render: function () {   
+    $(this.el).html(this.template());
+    return this;
+  }
+
+});

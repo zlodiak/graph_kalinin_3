@@ -8,20 +8,20 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#!/index">graphKalinin</a>
+      <a class="navbar-brand" href="#index">graphKalinin</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#!/index">index</a></li>
+        <li class="active"><a href="#index">index</a></li>
         <!-- <li><a href="#" data-toggle="modal" data-target="#addDot">Добавить точку</a></li> -->
-        <li><a href="#!/page1">page1</a></li>
-        <li><a href="#!/page2">page2</a></li>
+        <li><a href="#page1">page1</a></li>
+        <li><a href="#page2">page2</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#!/page3">page3</a></li>
-            <li><a href="#!/page4">page4</a></li>
-            <li><a href="#!/page5">page5</a></li>
+            <li><a href="#page3">page3</a></li>
+            <li><a href="#page4">page4</a></li>
+            <li><a href="#page5">page5</a></li>
           </ul>
         </li>
       </ul>
