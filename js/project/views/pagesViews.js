@@ -91,12 +91,16 @@ APP.Page5View = Backbone.View.extend({
 
 APP.GraphView = Backbone.View.extend({
 
+  initialize: function(options) {
+   this.graph_id = options.graph_id
+  },    
+
   el: $('#contentContainer'), 
 
   template: _.template($('#graphTemplate').html()), 
 
   render: function (graph_id) {   
-    $(this.el).html(this.template({graph_id: graph_id}));
+    $(this.el).html(this.template({graph_id: this.graph_id}));
     return this;
   }
 

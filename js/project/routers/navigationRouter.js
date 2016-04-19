@@ -67,11 +67,11 @@ APP.NavigationRouter = Backbone.Router.extend({
     }
   }, 
 
-  graph: function (graph_id) {  console.log('gr');
-    var graphView = new APP.GraphView();
+  graph: function (graph_id) {
+    var graphView = new APP.GraphView({graph_id: graph_id});
 
-    if (graphView) {  
-      graphView.render(graph_id);
+    if(graphView) {  
+      graphView.render();
     }
   },   
 
