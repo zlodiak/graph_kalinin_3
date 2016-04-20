@@ -39,7 +39,7 @@ APP.GraphView = Backbone.View.extend({
     this.xMax = parseInt(this.graphObj.attributes.xMax, 10);
     this.yMax = parseInt(this.graphObj.attributes.yMax, 10);    
 
-    this.canvasGraphElem.width = this.xMax + (this.canvasOffset * 2);
+    this.canvasGraphElem.width = (this.xMax - this.xMin) + (this.canvasOffset * 2);
     this.canvasGraphElem.height = this.yMax + (this.canvasOffset * 2); 
 
     this.ctx.translate(this.canvasOffset, this.yMax + this.canvasOffset);
@@ -49,7 +49,7 @@ APP.GraphView = Backbone.View.extend({
     this.ctx.beginPath();
 
     this.ctx.moveTo(0, 0);
-    this.ctx.lineTo(this.xMax, 0);
+    this.ctx.lineTo((this.xMax - this.xMin), 0);
 
     this.ctx.moveTo(0, 0);
     this.ctx.lineTo(0, -this.yMax);
@@ -63,7 +63,7 @@ APP.GraphView = Backbone.View.extend({
   renderScaleMarks: function() {  
     this.ctx.beginPath();
 
-    for(var i = this.xMin; i <= this.xMax; i += this.xPeriod) {
+    for(var i = 0; i <= (this.xMax - this.xMin); i += this.xPeriod) {
       this.ctx.moveTo(i, -this.scaleMarkSize);
       this.ctx.lineTo(i, this.scaleMarkSize);
     };
