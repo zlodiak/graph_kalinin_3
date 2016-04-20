@@ -45,9 +45,10 @@ APP.GraphLinkView = Backbone.View.extend({
 
   className: 'list-group-item',
 
-  render: function() {  
+  render: function() {  console.dir(this.model);
     this.$el.html(this.template({
       title: this.model.attributes.title,
+      id: this.model.id,
       cid: this.model.cid
     }));
 

@@ -9,7 +9,7 @@ APP.NavigationRouter = Backbone.Router.extend({
     "page3": "page3", 
     "page4": "page4", 
     "page5": "page5", 
-    "graph/:graph_id": "graph", 
+    "graph/:graph_cid": "graph", 
     "*fallback": "error404"
   },
 
@@ -67,8 +67,8 @@ APP.NavigationRouter = Backbone.Router.extend({
     }
   }, 
 
-  graph: function (graph_id) {
-    var graphView = new APP.GraphView({graph_id: graph_id});
+  graph: function (graph_cid) {
+    var graphView = new APP.GraphView({graph_cid: graph_cid});
 
     if(graphView) {  
       graphView.render();

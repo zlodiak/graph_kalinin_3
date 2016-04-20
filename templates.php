@@ -35,7 +35,7 @@
   <input class="edit_field hide" type="text" value="<%= title %>" />
 
   <div class="display_block">
-    <a class="graph_title" href="#<%= title %>" id="graphTitle_<%= cid %>"><%= title %></a>
+    <a class="graph_title" href="#graph/<%= cid %>" id="graphTitle_<%= cid %>"><%= title %></a>
     <div class="action glyphicon glyphicon-remove pull-right"></div>
     <div class="action glyphicon glyphicon-edit pull-right"></div>  
   </div>
@@ -86,7 +86,7 @@
 
 <script type="text/template" id="graphTemplate">
   <div class="graph">
-    graph: <%= graph_id %>
+    graph: <%= graph_cid %>
   </div>
 </script>
 
