@@ -86,7 +86,10 @@
 
 <script type="text/template" id="graphTemplate">
   <div class="graph">
-    graph: <%= graph_cid %>
+    <canvas class="canvas_graph" id="canvasGraph"></canvas>
+
+    graph: <%= title %>
+    graph: <%= id %>
   </div>
 </script>
 

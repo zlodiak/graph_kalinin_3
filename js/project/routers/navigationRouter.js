@@ -15,8 +15,6 @@ APP.NavigationRouter = Backbone.Router.extend({
 
   initialize: function() { 
     Backbone.history.start();  
-    //Backbone.history.start({root: '/js/EXAMPLES/graphKalinin3/'});  
-    //if(!Backbone.history.start()) app.navigate('error404', {trigger:true});   
   },  
 
   index: function () {     
