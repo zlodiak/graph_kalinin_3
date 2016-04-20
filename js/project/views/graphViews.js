@@ -35,14 +35,14 @@ APP.GraphView = Backbone.View.extend({
     this.canvasOffset = 40;
     this.scaleMarkSize = 3;
     this.yValuesOffset = 4;
-    this.xValuesOffset = 2;
+    this.xValuesOffset = 10;
     this.xMax = parseInt(this.graphObj.attributes.xMax, 10);
     this.yMax = parseInt(this.graphObj.attributes.yMax, 10);    
 
     this.canvasGraphElem.width = (this.xMax - this.xMin) + (this.canvasOffset * 2);
-    this.canvasGraphElem.height = this.yMax + (this.canvasOffset * 2); 
+    this.canvasGraphElem.height = (this.yMax - this.yMin) + (this.canvasOffset * 2); 
 
-    this.ctx.translate(this.canvasOffset, this.yMax + this.canvasOffset);
+    this.ctx.translate(this.canvasOffset, (this.yMax - this.yMin) + this.canvasOffset);
   }, 
 
   renderGuides: function() {      
@@ -52,7 +52,7 @@ APP.GraphView = Backbone.View.extend({
     this.ctx.lineTo((this.xMax - this.xMin), 0);
 
     this.ctx.moveTo(0, 0);
-    this.ctx.lineTo(0, -this.yMax);
+    this.ctx.lineTo(0, -(this.yMax - this.yMin));
 
     this.ctx.lineWidth = 1;
     this.ctx.strokeStyle = '#000';
@@ -89,7 +89,7 @@ APP.GraphView = Backbone.View.extend({
     for(var i = this.xMin; i <= this.xMax; i += this.xPeriod * 4) {
       this.ctx.font = "10px Arial";
       this.ctx.textAlign = "right";
-      this.ctx.fillText(i, i + this.xValuesOffset, 20);
+      this.ctx.fillText(i, (i - this.xMin) + this.xValuesOffset, 20);
     };    
   }    
 
