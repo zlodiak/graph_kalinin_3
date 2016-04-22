@@ -12,7 +12,7 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li class="active"><a href="#index">index</a></li>
-        <li><a class="add_dot_button hide" id="addDotButton" href="#" data-toggle="modal" data-target="#addDot">Добавить точку</a></li>
+        <li><a class="add_dot_button" id="addDotButton" href="#" data-toggle="modal" data-target="#addDot">Добавить точку</a></li>
         <li><a href="#page1">page1</a></li>
         <li><a href="#page2">page2</a></li>
         <li class="dropdown">

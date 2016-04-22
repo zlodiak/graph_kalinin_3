@@ -34,7 +34,7 @@ INFO:
 
 /****************************************************************************** GLOBAL_blocks: navbar */
 .add_dot_button{
-
+	display: block !important;
 }
 
 
