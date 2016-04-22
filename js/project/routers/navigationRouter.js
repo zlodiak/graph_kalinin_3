@@ -41,27 +41,6 @@ APP.NavigationRouter = Backbone.Router.extend({
     if (page2View) { page2View.render() };
   },  
 
-  page3: function () {  
-    this.renderNavbar(); 
-
-    var page3View = new APP.Page3View();
-    if (page3View) { page3View.render() };
-  },  
-
-  page4: function () {  
-    this.renderNavbar(); 
-
-    var page4View = new APP.Page4View();
-    if (page4View) { page4View.render() };
-  },  
-
-  page5: function () {  
-    this.renderNavbar(); 
-
-    var page5View = new APP.Page5View();
-    if (page5View) { page5View.render() };
-  }, 
-
   graph: function (graph_cid) {
     this.renderNavbar(); 
 
@@ -77,7 +56,8 @@ APP.NavigationRouter = Backbone.Router.extend({
   }, 
 
   renderNavbar: function () { 
-    var navbarView = new APP.NavbarView(); 
+    var slug = Backbone.history.getFragment().substring(0,5);
+    var navbarView = new APP.NavbarView(slug); 
     if (navbarView) { $('#mainContainer').prepend(navbarView.render().el) };  
   }            
 

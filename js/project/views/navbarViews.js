@@ -6,8 +6,8 @@ APP.NavbarView = Backbone.View.extend({
 
   id: 'navbar', 
 
-  initialize: function() {
- 
+  initialize: function(slug) {
+    this.slug = slug;
   },    
 
   template: _.template($('#navbarTemplate').html()), 
@@ -17,14 +17,26 @@ APP.NavbarView = Backbone.View.extend({
 
     $(this.el).html(this.template());  
 
+    this.toggleStateAddDotButton();
+    this.changeActivePunkt();
+
+    return this;
+  },
+
+  changeActivePunkt: function () { 
+    $(this.el).find('li').removeClass('active');
+    $(this.el).find("[data-punkt='" + this.slug + "']").addClass('active');
+
+
+  },
+
+  toggleStateAddDotButton: function () { 
     var addDotButtonPunkt = $(this.el).find('#addDotButton').parent();
-    if(Backbone.history.getFragment().substring(0,5) == 'graph') {
+    if(this.slug == 'graph') {
       addDotButtonPunkt.show();
     } else {
       addDotButtonPunkt.hide();
     };
-
-    return this;
   }
 
 });

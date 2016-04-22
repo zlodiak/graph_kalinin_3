@@ -10,19 +10,11 @@
       <a class="navbar-brand" href="#index">graphKalinin</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#index">index</a></li>
-        <li><a class="add_dot_button" id="addDotButton" href="#" data-toggle="modal" data-target="#addDot">Добавить точку</a></li>
-        <li><a href="#page1">page1</a></li>
-        <li><a href="#page2">page2</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#page3">page3</a></li>
-            <li><a href="#page4">page4</a></li>
-            <li><a href="#page5">page5</a></li>
-          </ul>
-        </li>
+      <ul class="nav navbar-nav" id='navbarMebu'>
+        <li class="active punktPrimary" data-punkt="index"><a href="#index">index</a></li>
+        <li class="punktPrimary" data-punkt="graph"><a class="add_dot_button" id="addDotButton" href="#" data-toggle="modal" data-target="#addDot">Добавить точку</a></li>
+        <li class="punktPrimary"data-punkt="page1"><a href="#page1">page1</a></li>
+        <li class="punktPrimary"data-punkt="page2"><a href="#page2">page2</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="active"><a href="./">Default <span class="sr-only">(current)</span></a></li>
@@ -97,25 +89,6 @@
 <script type="text/template" id="page2Template">
   <div class="page2">
     page 2
-  </div>
-</script>
-
-<script type="text/template" id="page3Template">
-  <div class="page3">
-    page 3 
-    <a href="#page5">page5</a>
-  </div>
-</script>
-
-<script type="text/template" id="page4Template">
-  <div class="page4">
-    page 4
-  </div>
-</script>
-
-<script type="text/template" id="page5Template">
-  <div class="page5">
-    page 5
   </div>
 </script>
 
