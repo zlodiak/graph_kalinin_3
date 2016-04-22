@@ -35,7 +35,7 @@ APP.GraphView = Backbone.View.extend({
     this.canvasOffset = 40;
     this.scaleMarkSize = 3;
     this.yValuesOffset = 4;
-    this.xValuesOffset = 10;
+    this.xValuesOffset = 2;
     this.xMax = parseInt(this.graphObj.attributes.xMax, 10);
     this.yMax = parseInt(this.graphObj.attributes.yMax, 10);    
 
