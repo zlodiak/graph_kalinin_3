@@ -118,15 +118,11 @@
 </script>
 
 <script type="text/template" id="page1Template">
-  <div class="page1">
-    page 1
-  </div>
+  page 1
 </script>
 
 <script type="text/template" id="page2Template">
-  <div class="page2">
-    page 2
-  </div>
+  page 2
 </script>
 
 <script type="text/template" id="graphTemplate">

@@ -28,14 +28,18 @@ APP.NavigationRouter = Backbone.Router.extend({
     this.renderNavbar(); 
 
     var page1View = new APP.Page1View();
-    if (page1View) { page1View.render() };
+    if (page1View) { 
+      $('#contentContainer').html(page1View.render().el);
+    };
   },  
 
   page_2: function () {  
     this.renderNavbar(); 
 
     var page2View = new APP.Page2View();
-    if (page2View) { page2View.render() };
+    if (page2View) { 
+      $('#contentContainer').html(page2View.render().el);
+    };
   },     
 
   page_graph: function (graph_cid) {  
