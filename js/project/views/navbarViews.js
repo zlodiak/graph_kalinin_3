@@ -26,8 +26,6 @@ APP.NavbarView = Backbone.View.extend({
   changeActivePunkt: function () { 
     $(this.el).find('li').removeClass('active');
     $(this.el).find("[data-punkt='" + this.slug + "']").addClass('active');
-
-
   },
 
   toggleStateAddDotButton: function () { 
