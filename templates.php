@@ -131,7 +131,7 @@
   </div>
 </script>
 
-<script type="text/template" id="pageGraphTemplate222">
+<script type="text/template" id="graphTemplate">
   <div class="graph">
     <canvas class="canvas_graph" id="canvasGraph"></canvas>
 

@@ -24,7 +24,7 @@ APP.IndexView = Backbone.View.extend({
 
 });
 
-/*
+
 APP.GraphView = Backbone.View.extend({
 
   initialize: function(options) { console.dir(options);
@@ -41,7 +41,7 @@ APP.GraphView = Backbone.View.extend({
    
   },    
 
-  el: $('#contentContainer'), 
+  el: 'div', 
 
   template: _.template($('#graphTemplate').html()), 
 
@@ -121,13 +121,13 @@ APP.GraphView = Backbone.View.extend({
   }    
 
 });
-*/
+
 
 
 APP.PageGraphView = Backbone.View.extend({
 
   initialize: function(options) {     console.log(options);
-    this.graphView = new APP.GraphView(options);   
+    //this.graphView = new APP.GraphView(options);   
   },   
 
   el: $('#contentContainer'), 
