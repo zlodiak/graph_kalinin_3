@@ -108,7 +108,7 @@
 </script>
 
 <script type="text/template" id="pageGraphTemplate">
-  <div class="graph">
+  <div class="page_graph">
     pgt
   </div>
 </script>
@@ -132,12 +132,10 @@
 </script>
 
 <script type="text/template" id="graphTemplate">
-  <div class="graph">
-    <canvas class="canvas_graph" id="canvasGraph"></canvas>
+  <canvas class="canvas_graph" id="canvasGraph"></canvas>
 
-    graph: <%= title %>
-    graph: <%= id %>
-  </div>
+  graph: <%= title %>
+  graph: <%= id %>
 </script>
 
 

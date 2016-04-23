@@ -25,7 +25,7 @@ APP.IndexView = Backbone.View.extend({
 });
 
 
-APP.GraphView = Backbone.View.extend({
+/*APP.GraphView = Backbone.View.extend({
 
   initialize: function(options) { console.dir(options);
    this.graph_cid = options.graph_cid;
@@ -121,13 +121,13 @@ APP.GraphView = Backbone.View.extend({
   }    
 
 });
-
+*/
 
 
 APP.PageGraphView = Backbone.View.extend({
 
   initialize: function(options) {     console.log(options);
-    //this.graphView = new APP.GraphView(options);   
+    this.graphView = new APP.GraphView(options);   
   },   
 
   el: $('#contentContainer'), 
@@ -136,7 +136,7 @@ APP.PageGraphView = Backbone.View.extend({
 
   render: function () {   
     $(this.el).html(this.template());
-    //$(this.el).append(this.graphView.render().el);
+    $('.page_graph').append(this.graphView.render().el);
     return this;
   }
 
