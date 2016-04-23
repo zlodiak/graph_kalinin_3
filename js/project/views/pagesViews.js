@@ -33,7 +33,7 @@ APP.PageGraphView = Backbone.View.extend({
 
   initialize: function(options) {     
     this.graphView = new APP.GraphView(options);   
-    this.addDotModalView = new APP.AddDotModalView();  
+    this.addDotModalView = new APP.AddDotModalView(options);  
   },   
 
   tagName: 'div',

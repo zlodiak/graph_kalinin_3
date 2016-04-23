@@ -100,8 +100,9 @@ APP.GraphView = Backbone.View.extend({
 
 APP.AddDotModalView = Backbone.View.extend({
 
-  initialize: function() {
-
+  initialize: function(options) { console.log(options);
+    //this.model = APP.GraphCollection.get(options.graph_cid);
+    this.model = 121;
   },  
 
   tagName: 'div',
@@ -121,7 +122,7 @@ APP.AddDotModalView = Backbone.View.extend({
   createDot: function(e) {
     e.preventDefault();
   
-    console.log(1111);
+    console.log(this.model);
   }
 
 });
