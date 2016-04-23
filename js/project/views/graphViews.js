@@ -1,6 +1,6 @@
 APP.GraphView = Backbone.View.extend({
 
-  initialize: function(options) { console.dir(options);
+  initialize: function(options) { 
    this.graph_cid = options.graph_cid;
    this.graphObj = APP.graphCollection.get(this.graph_cid); 
 
@@ -10,8 +10,6 @@ APP.GraphView = Backbone.View.extend({
    this.yMin = parseInt(this.graphObj.attributes.yMin, 10);   
    this.yMax = parseInt(this.graphObj.attributes.yMax, 10);   
    this.yPeriod = parseInt(this.graphObj.attributes.yPeriod, 10);    
-
-   
   },    
 
   tagName: 'div',
@@ -35,12 +33,11 @@ APP.GraphView = Backbone.View.extend({
 
   canvasInit: function() {  
     this.canvasGraphElem = $(this.el).find("#canvasGraph")[0];
-    console.log(this.canvasGraphElem);
     this.ctx = this.canvasGraphElem.getContext('2d');
     this.canvasOffset = 40;
     this.scaleMarkSize = 3;
     this.yValuesOffset = 4;
-    this.xValuesOffset = 2;
+    this.xValuesOffset = -4;
     this.xMax = parseInt(this.graphObj.attributes.xMax, 10);
     this.yMax = parseInt(this.graphObj.attributes.yMax, 10);    
 
@@ -93,7 +90,7 @@ APP.GraphView = Backbone.View.extend({
 
     for(var i = this.xMin; i <= this.xMax; i += this.xPeriod * 4) {
       this.ctx.font = "10px Arial";
-      this.ctx.textAlign = "right";
+      this.ctx.textAlign = "left";
       this.ctx.fillText(i, (i - this.xMin) + this.xValuesOffset, 20);
     };    
   }    

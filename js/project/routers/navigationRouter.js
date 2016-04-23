@@ -12,7 +12,6 @@ APP.NavigationRouter = Backbone.Router.extend({
 
   initialize: function() { 
     Backbone.history.start();  
-    console.log(Backbone.history.getFragment());    
   },   
 
   page_index: function () {    
