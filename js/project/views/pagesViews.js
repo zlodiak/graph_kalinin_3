@@ -24,7 +24,7 @@ APP.IndexView = Backbone.View.extend({
 
 });
 
-
+/*
 APP.GraphView = Backbone.View.extend({
 
   initialize: function(options) { console.dir(options);
@@ -121,7 +121,7 @@ APP.GraphView = Backbone.View.extend({
   }    
 
 });
-
+*/
 
 
 APP.PageGraphView = Backbone.View.extend({

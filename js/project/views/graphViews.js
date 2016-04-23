@@ -1,4 +1,4 @@
-APP.GraphView = Backbone.View.extend({
+/*APP.GraphView = Backbone.View.extend({
 
   initialize: function(options) { console.dir(options);
    this.graph_cid = options.graph_cid;
@@ -93,7 +93,7 @@ APP.GraphView = Backbone.View.extend({
     };    
   }    
 
-});
+});*/
 
 
 APP.AddDotModalView = Backbone.View.extend({
