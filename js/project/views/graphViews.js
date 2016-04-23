@@ -14,7 +14,11 @@ APP.GraphView = Backbone.View.extend({
    
   },    
 
-  el: $('#contentContainer'), 
+  tagName: 'div',
+
+  className: 'graph',
+
+  id: 'graph',
 
   template: _.template($('#graphTemplate').html()), 
 
@@ -30,7 +34,8 @@ APP.GraphView = Backbone.View.extend({
   }, 
 
   canvasInit: function() {  
-    this.canvasGraphElem = document.getElementById("canvasGraph");
+    this.canvasGraphElem = $(this.el).find("#canvasGraph")[0];
+    console.log(this.canvasGraphElem);
     this.ctx = this.canvasGraphElem.getContext('2d');
     this.canvasOffset = 40;
     this.scaleMarkSize = 3;

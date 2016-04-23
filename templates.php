@@ -108,9 +108,7 @@
 </script>
 
 <script type="text/template" id="pageGraphTemplate">
-  <div class="page_graph">
-    pgt
-  </div>
+  График: 
 </script>
 
 <script type="text/template" id="indexTemplate">

@@ -31,17 +31,21 @@ APP.IndexView = Backbone.View.extend({
 
 APP.PageGraphView = Backbone.View.extend({
 
-  initialize: function(options) {     console.log(options);
+  initialize: function(options) {     
     this.graphView = new APP.GraphView(options);   
   },   
 
-  el: $('#contentContainer'), 
+  tagName: 'div',
+
+  className: 'page_graph',
+
+  id: 'pageGraph',
 
   template: _.template($('#pageGraphTemplate').html()), 
 
   render: function () {   
     $(this.el).html(this.template());
-    $(this.el).find('.page_graph').append(this.graphView.render().el);
+    $(this.el).append(this.graphView.render().el);
     return this;
   }
 

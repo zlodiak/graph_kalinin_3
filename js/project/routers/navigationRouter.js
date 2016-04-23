@@ -46,7 +46,9 @@ APP.NavigationRouter = Backbone.Router.extend({
     this.renderNavbar(); 
 
     var pageGraphView = new APP.PageGraphView({graph_cid: graph_cid});
-    if (pageGraphView) { pageGraphView.render() };
+    if (pageGraphView) { 
+      $('#contentContainer').html(pageGraphView.render().el);
+    };
   }, 
 
   page_error404: function () {  
