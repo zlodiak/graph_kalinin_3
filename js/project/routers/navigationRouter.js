@@ -60,7 +60,7 @@ APP.NavigationRouter = Backbone.Router.extend({
   }, 
 
   renderNavbar: function () { 
-    var slug = Backbone.history.getFragment().substring(0,5);
+    var slug = Backbone.history.getFragment().substring(0,10);
     var navbarView = new APP.NavbarView(slug); 
     if (navbarView) { $('#mainContainer').prepend(navbarView.render().el) };  
   }            

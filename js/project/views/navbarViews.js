@@ -32,7 +32,7 @@ APP.NavbarView = Backbone.View.extend({
 
   toggleStateAddDotButton: function () { 
     var addDotButtonPunkt = $(this.el).find('#addDotButton').parent();
-    if(this.slug == 'graph') {
+    if(this.slug == 'page_graph') {
       addDotButtonPunkt.show();
     } else {
       addDotButtonPunkt.hide();
