@@ -84,11 +84,15 @@ APP.Page2View = Backbone.View.extend({
 });
 
 
-APP.Error404View = Backbone.View.extend({
+APP.PageError404View = Backbone.View.extend({
 
-  el: $('#contentContainer'), 
+  tagName: 'div',
 
-  template: _.template($('#error404Template').html()), 
+  className: 'page_error404',
+
+  id: 'pageError404',
+
+  template: _.template($('#pageError404Template').html()), 
 
   render: function () {   
     $(this.el).html(this.template());

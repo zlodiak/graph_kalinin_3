@@ -7,7 +7,7 @@ APP.NavigationRouter = Backbone.Router.extend({
     "page_1": "page_1", 
     "page_2": "page_2", 
     "page_graph/:graph_cid": "page_graph", 
-    "*fallback": "error404"
+    "*fallback": "page_error404"
   },
 
   initialize: function() { 
@@ -49,11 +49,13 @@ APP.NavigationRouter = Backbone.Router.extend({
     if (pageGraphView) { pageGraphView.render() };
   }, 
 
-  error404: function () {  
+  page_error404: function () {  
     this.renderNavbar(); 
 
-    var error404View = new APP.Error404View();
-    if (error404View) { error404View.render() };
+    var pageError404View = new APP.PageError404View();
+    if (pageError404View) { 
+      $('#contentContainer').html(pageError404View.render().el);
+    };
   }, 
 
   renderNavbar: function () { 

@@ -133,8 +133,6 @@
 </script>
 
 
-<script type="text/template" id="error404Template">
-  <div class="error404">
-    error404
-  </div>
+<script type="text/template" id="pageError404Template">
+  error404
 </script>
