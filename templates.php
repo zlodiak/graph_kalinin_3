@@ -19,7 +19,12 @@
               <p>
                 <label for="fld_y_coord">Y координата</label>
                 <input class="form-control" id="fld_y_coord" name="fld_y_coord" type="number">
-              </p>            
+              </p>
+
+              <p>
+                <label for="fld_description">Доп. информация</label> 
+                <textarea class="form-control" id="fld_description"></textarea> 
+              </p>                         
             </div>
 
             <div class="modal-footer">
