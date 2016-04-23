@@ -42,14 +42,14 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#index">graphKalinin</a>
+      <a class="navbar-brand" href="#page_index">graphKalinin</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav" id='navbarMebu'>
-        <li class="active punktPrimary" data-punkt="index"><a href="#index">index</a></li>
+        <li class="active punktPrimary" data-punkt="index"><a href="#page_index">index</a></li>
         <li class="punktPrimary" data-punkt="graph"><a class="add_dot_button" id="addDotButton" href="#" data-toggle="modal" data-target="#addDotModal">Добавить точку</a></li>
-        <li class="punktPrimary"data-punkt="page1"><a href="#page1">page1</a></li>
-        <li class="punktPrimary"data-punkt="page2"><a href="#page2">page2</a></li>
+        <li class="punktPrimary"data-punkt="page1"><a href="#page_1">page1</a></li>
+        <li class="punktPrimary"data-punkt="page2"><a href="#page_2">page2</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="active"><a href="./">Default <span class="sr-only">(current)</span></a></li>
@@ -114,9 +114,7 @@
 </script>
 
 <script type="text/template" id="indexTemplate">
-  <div class="index" id="indexPage">
-     index page
-  </div>
+  index page
 </script>
 
 <script type="text/template" id="page1Template">

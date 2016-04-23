@@ -7,8 +7,6 @@
 
   <body>
     <div class="container main-container" id="mainContainer">
-      <?php require('nav.php'); ?>
-
       <div class="content-container" id="contentContainer"></div>
     </div>
 

@@ -1,6 +1,10 @@
 APP.IndexView = Backbone.View.extend({  
 
-  el: $('#contentContainer'), 
+  tagName: 'div',
+
+  className: 'page_index',
+
+  id: 'pageIndex',
 
   initialize: function() {
     if(!APP.graphCollection) {
@@ -17,7 +21,7 @@ APP.IndexView = Backbone.View.extend({
 
   render: function () { 
     $(this.el).html(this.template());  
-    $(this.el).children().first().html(this.graphLinksView.render().el);  
+    $(this.el).html(this.graphLinksView.render().el);  
     $(this.el).append(this.addGraphModalView.render().el);
     return this;
   }
@@ -136,7 +140,7 @@ APP.PageGraphView = Backbone.View.extend({
 
   render: function () {   
     $(this.el).html(this.template());
-    $('.page_graph').append(this.graphView.render().el);
+    $(this.el).find('.page_graph').append(this.graphView.render().el);
     return this;
   }
 

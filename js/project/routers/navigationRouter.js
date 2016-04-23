@@ -2,10 +2,10 @@ window.APP = window.APP || {};
 
 APP.NavigationRouter = Backbone.Router.extend({
   routes: {
-    "": "index",  
-    "index": "index", 
-    "page1": "page1", 
-    "page2": "page2", 
+    "": "page_index",  
+    "page_index": "page_index", 
+    "page_1": "page_1", 
+    "page_2": "page_2", 
     "page_graph/:graph_cid": "page_graph", 
     "*fallback": "error404"
   },
@@ -13,42 +13,37 @@ APP.NavigationRouter = Backbone.Router.extend({
   initialize: function() { 
     Backbone.history.start();  
     console.log(Backbone.history.getFragment());    
-  },  
+  },   
 
-  page_graph: function (graph_cid) {  
-    this.renderNavbar(); 
-
-    var pageGraphView = new APP.PageGraphView({graph_cid: graph_cid});
-    if (pageGraphView) { pageGraphView.render() };
-  },  
-
-  index: function () {    
+  page_index: function () {    
     this.renderNavbar(); 
 
     var indexView = new APP.IndexView();
-    if (indexView) { indexView.render() };
+    if (indexView) { 
+      $('#contentContainer').html(indexView.render().el);
+    };
   },
 
-  page1: function () {  
+  page_1: function () {  
     this.renderNavbar(); 
 
     var page1View = new APP.Page1View();
     if (page1View) { page1View.render() };
   },  
 
-  page2: function () {  
+  page_2: function () {  
     this.renderNavbar(); 
 
     var page2View = new APP.Page2View();
     if (page2View) { page2View.render() };
   },     
 
-/*  graph: function (graph_cid) {
+  page_graph: function (graph_cid) {  
     this.renderNavbar(); 
 
-    var graphView = new APP.GraphView({graph_cid: graph_cid});
-    if(graphView) { graphView.render() };
-  },  */ 
+    var pageGraphView = new APP.PageGraphView({graph_cid: graph_cid});
+    if (pageGraphView) { pageGraphView.render() };
+  }, 
 
   error404: function () {  
     this.renderNavbar(); 
