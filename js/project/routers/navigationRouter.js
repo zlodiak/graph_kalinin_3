@@ -6,10 +6,7 @@ APP.NavigationRouter = Backbone.Router.extend({
     "index": "index", 
     "page1": "page1", 
     "page2": "page2", 
-    "page3": "page3", 
-    "page4": "page4", 
-    "page5": "page5", 
-    //"page_graph/:graph_cid": "page_graph", 
+    //"graph/:graph_cid": "graph", 
     "*fallback": "error404"
   },
 
@@ -18,12 +15,12 @@ APP.NavigationRouter = Backbone.Router.extend({
     console.log(Backbone.history.getFragment());    
   },  
 
-/*  page_graph: function (graph_cid) {  
+/*  graph: function (graph_cid) {  
     this.renderNavbar(); 
 
     var pageGraphView = new APP.PageGraphView({graph_cid: graph_cid});
     if (pageGraphView) { pageGraphView.render() };
-  },  */
+  }, */ 
 
   index: function () {    
     this.renderNavbar(); 
