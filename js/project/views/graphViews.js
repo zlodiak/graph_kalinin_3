@@ -1,6 +1,6 @@
 APP.GraphView = Backbone.View.extend({
 
-  initialize: function(options) {
+  initialize: function(options) { console.dir(options);
    this.graph_cid = options.graph_cid;
    this.graphObj = APP.graphCollection.get(this.graph_cid); 
 
@@ -11,7 +11,7 @@ APP.GraphView = Backbone.View.extend({
    this.yMax = parseInt(this.graphObj.attributes.yMax, 10);   
    this.yPeriod = parseInt(this.graphObj.attributes.yPeriod, 10);    
 
-
+   
   },    
 
   el: $('#contentContainer'), 
@@ -92,5 +92,34 @@ APP.GraphView = Backbone.View.extend({
       this.ctx.fillText(i, (i - this.xMin) + this.xValuesOffset, 20);
     };    
   }    
+
+});
+
+
+APP.AddDotModalView = Backbone.View.extend({
+
+  initialize: function() {
+
+  },  
+
+  tagName: 'div',
+
+  template: _.template($('#addDotModalTemplate').html()), 
+
+  events:{
+    'click #createDotSubmit' : 'createDot'
+  },  
+
+  render: function() {  
+    this.$el.html(this.template());
+      
+    return this;
+  }, 
+
+  createDot: function(e) {
+    e.preventDefault();
+  
+    console.log(1111);
+  }
 
 });

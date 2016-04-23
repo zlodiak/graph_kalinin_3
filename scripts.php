@@ -5,10 +5,10 @@
 <script src="js/backbone.localStorage-min.js"></script>
 
 <script src="js/project/routers/navigationRouter.js"></script> 
+<script src="js/project/views/graphViews.js"></script> 
 <script src="js/project/views/navbarViews.js"></script> 
 <script src="js/project/views/pagesViews.js"></script> 
 <script src="js/project/views/graphsViews.js"></script> 
-<script src="js/project/views/graphViews.js"></script> 
 <script src="js/project/models/graphsModel.js"></script> 
 <script src="js/project/collections/graphsCollection.js"></script> 
 <script src="js/project/helper.js"></script> 

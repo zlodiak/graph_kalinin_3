@@ -9,16 +9,21 @@ APP.NavigationRouter = Backbone.Router.extend({
     "page3": "page3", 
     "page4": "page4", 
     "page5": "page5", 
-    "graph/:graph_cid": "graph", 
+    //"page_graph/:graph_cid": "page_graph", 
     "*fallback": "error404"
   },
 
   initialize: function() { 
     Backbone.history.start();  
-    console.log(Backbone.history.getFragment());
-
-    
+    console.log(Backbone.history.getFragment());    
   },  
+
+/*  page_graph: function (graph_cid) {  
+    this.renderNavbar(); 
+
+    var pageGraphView = new APP.PageGraphView({graph_cid: graph_cid});
+    if (pageGraphView) { pageGraphView.render() };
+  },  */
 
   index: function () {    
     this.renderNavbar(); 
@@ -39,14 +44,14 @@ APP.NavigationRouter = Backbone.Router.extend({
 
     var page2View = new APP.Page2View();
     if (page2View) { page2View.render() };
-  },  
+  },     
 
-  graph: function (graph_cid) {
+/*  graph: function (graph_cid) {
     this.renderNavbar(); 
 
     var graphView = new APP.GraphView({graph_cid: graph_cid});
     if(graphView) { graphView.render() };
-  },   
+  },  */ 
 
   error404: function () {  
     this.renderNavbar(); 

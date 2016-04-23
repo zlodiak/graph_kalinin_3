@@ -25,6 +25,25 @@ APP.IndexView = Backbone.View.extend({
 });
 
 
+APP.PageGraphView = Backbone.View.extend({
+
+  initialize: function(options) {     console.log(options);
+    this.graphView = new APP.GraphView(options);   
+  },   
+
+  el: $('#contentContainer'), 
+
+  template: _.template($('#pageGraphTemplate').html()), 
+
+  render: function () {   
+    $(this.el).html(this.template());
+    //$(this.el).append(this.graphView.render().el);
+    return this;
+  }
+
+});
+
+
 APP.Page1View = Backbone.View.extend({
 
   el: $('#contentContainer'), 
