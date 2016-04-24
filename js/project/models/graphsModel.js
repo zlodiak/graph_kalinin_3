@@ -7,7 +7,7 @@ APP.Graph = Backbone.Model.extend({
     xMax: undefined,
     xMin: undefined,
     xPeriod: undefined,
-    dots: {}
+    dots: []
   }, 
 
   idAttribute: 'cid',

@@ -121,7 +121,25 @@ APP.AddDotModalView = Backbone.View.extend({
   createDot: function(e) {
     e.preventDefault();
   
-    console.log(this.model);
+    var xCoordStr = this.$el.find('#fld_x_coord').val(),
+        xCoordInt = parseInt(xCoordStr, 10),
+        yCoordStr = this.$el.find('#fld_y_coord').val(),
+        yCoordInt = parseInt(yCoordStr, 10),
+        dot = {
+          xCoord: xCoordInt,
+          yCoord: yCoordInt
+        };
+
+
+    console.log('add dot');
+
+
+
+
+
+
+
+
   }
 
 });
