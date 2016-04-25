@@ -74,7 +74,7 @@ APP.GraphLinkView = Backbone.View.extend({
     var title = this.$el.find('.edit_field').val(),
         title = $.trim(title);    
 
-    if (title) {
+    if (title) {  
       this.model.save({ title: title });
     }    
   },
@@ -150,6 +150,9 @@ APP.AddGraphModalView = Backbone.View.extend({
     };
 
     var newGraph = new APP.Graph(newGraphData);
+    var newIdGraph = APP.graphCollection.getNewIdGraph();     
+
+    newGraph.set({idGraph: newIdGraph}); 
 
     if (newGraph.isValid()) {
       if(APP.graphCollection.add(newGraph)) { newGraph.save() };            
