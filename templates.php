@@ -131,8 +131,7 @@
 <script type="text/template" id="graphTemplate">
   <canvas class="canvas_graph" id="canvasGraph"></canvas>
 
-  graph: <%= title %>
-  graph: <%= id %>
+
 </script>
 
 

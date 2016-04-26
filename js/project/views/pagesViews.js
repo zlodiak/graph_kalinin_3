@@ -29,9 +29,9 @@ APP.IndexView = Backbone.View.extend({
 });
 
 
-APP.PageGraphView = Backbone.View.extend({
+APP.PageGraphView = Backbone.View.extend({  
 
-  initialize: function(options) {     
+  initialize: function(options) {    
     this.graphView = new APP.GraphView(options);   
     this.addDotModalView = new APP.AddDotModalView(options);  
   },   

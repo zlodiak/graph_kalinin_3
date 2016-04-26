@@ -13,7 +13,7 @@ APP.GraphLinksView = Backbone.View.extend({
 
   template: _.template($('#graphsListTemplate').html()),
 
-  render: function() {  console.log('render links');
+  render: function() {  
     this.$el.html(this.template());
 
     this.collection.each(function(model) { 
@@ -45,7 +45,7 @@ APP.GraphLinkView = Backbone.View.extend({
 
   className: 'list-group-item',
 
-  render: function() {  console.log('render link');
+  render: function() {  
     this.$el.html(this.template({
       title: this.model.attributes.title,
       idGraph: this.model.attributes.idGraph,
