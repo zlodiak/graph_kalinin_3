@@ -19,8 +19,8 @@ APP.helper = {
   getSimpleKeys: function(allKeysObj) {
     var simpleKeysArr = [];
 
-    for(key in allKeysObj) {
-      if(typeof allKeysObj[key] != 'object') { simpleKeysArr.push(key) };
+    for(key in allKeysObj) {  
+      if(typeof allKeysObj[key] != 'object' && key != 'idGraph') { simpleKeysArr.push(key) };
     };
 
     return simpleKeysArr;
