@@ -86,32 +86,7 @@ APP.GraphLinkView = Backbone.View.extend({
   },
 
   remove: function() {  
-    //console.log(APP.graphCollection);
-    console.log(this.model);
     this.model.destroy();
-    console.log(APP.graphCollection);
-    //APP.graphCollection.remove(this.model);
-
-/*    {
-      APP.graphCollection.remove(this.model)
-      console.log('destroyed');
-    } else {
-      console.log('no destroyed');
-    }*/
-    //APP.graphCollection.remove(this.model);
-/*    var model = this.model.get('idGraph');
-    APP.graphCollection.remove(this.model);
-
-
-    if(this.model.destroy()) {    
-      
-      console.log('idGraph ' + idGraph);
-      console.log('typeof idGraph ' + typeof idGraph);
-
-      var m = APP.graphCollection.get(idGraph);
-      console.log(m);*/
-      //APP.graphCollection.remove(APP.graphCollection.get(idGraph));
-    //};    
   }, 
 
   EnterKeyHandler: function (e) { 
