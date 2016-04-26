@@ -125,13 +125,26 @@ APP.AddDotModalView = Backbone.View.extend({
         xCoordInt = parseInt(xCoordStr, 10),
         yCoordStr = this.$el.find('#fld_y_coord').val(),
         yCoordInt = parseInt(yCoordStr, 10),
-        dot = {
+        info = this.$el.find('#fld_description').val(),  
+        idGraph = this.model.get('idGraph'),        
+        newDotData = {
           xCoord: xCoordInt,
-          yCoord: yCoordInt
+          yCoord: yCoordInt,
+          info: info,
+          graphId: idGraph
         };
 
+    var newDot = new APP.Dot(newDotData);
+    var newIdDot = APP.dotCollection.getNewIdDot();     
 
-    console.log('add dot');
+    newDot.set({idDot: newIdDot}); 
+    APP.dotCollection.add(newDot);
+    newDot.save();
+
+    //if(APP.dotCollection.add(newDot)) { newDot.save() };   
+
+    console.log('add dot', newDot);
+    console.log(APP.dotCollection);
 
 
 

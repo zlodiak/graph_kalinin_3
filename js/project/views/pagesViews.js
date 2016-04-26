@@ -9,9 +9,14 @@ APP.IndexView = Backbone.View.extend({
   initialize: function() {
     if(!APP.graphCollection) {
       APP.graphCollection = new APP.GraphCollection();
-    };    
+    };
+
+    if(!APP.dotCollection) {
+      APP.dotCollection = new APP.DotCollection();
+    };        
 
     APP.graphCollection.fetch();
+    APP.dotCollection.fetch();
 
     this.graphLinksView = new APP.GraphLinksView({collection: APP.graphCollection});         
     this.addGraphModalView = new APP.AddGraphModalView();    
