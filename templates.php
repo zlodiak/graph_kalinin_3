@@ -100,7 +100,7 @@
   <input class="edit_field hide" type="text" value="<%= title %>" />
 
   <div class="display_block">
-    <a class="graph_title" href="#page_graph/<%= cid %>" id="graphTitle_<%= cid %>"><%= title %></a>
+    <a class="graph_title" href="#page_graph/<%= idGraph %>" id="graphTitle_<%= idGraph %>"><%= title %></a>
     <div class="action glyphicon glyphicon-remove pull-right"></div>
     <div class="action glyphicon glyphicon-edit pull-right"></div>  
   </div>

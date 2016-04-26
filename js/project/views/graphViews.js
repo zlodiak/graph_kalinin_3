@@ -1,8 +1,8 @@
 APP.GraphView = Backbone.View.extend({
 
-  initialize: function(options) { 
-   this.graph_cid = options.graph_cid;
-   this.graphObj = APP.graphCollection.get(this.graph_cid); 
+  initialize: function(options) {   
+   this.idGraph = options.idGraph;   
+   this.graphObj = APP.graphCollection.get(this.idGraph); 
 
    this.xMin = parseInt(this.graphObj.attributes.xMin, 10);   
    this.xMax = parseInt(this.graphObj.attributes.xMax, 10);   
@@ -101,7 +101,7 @@ APP.GraphView = Backbone.View.extend({
 APP.AddDotModalView = Backbone.View.extend({
 
   initialize: function(options) { 
-    this.model = APP.graphCollection.get(options.graph_cid);
+    this.model = APP.graphCollection.get(options.idGraph);
   },  
 
   tagName: 'div',

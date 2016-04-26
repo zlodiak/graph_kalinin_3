@@ -13,7 +13,7 @@ APP.GraphLinksView = Backbone.View.extend({
 
   template: _.template($('#graphsListTemplate').html()),
 
-  render: function() {  
+  render: function() {  console.log('render links');
     this.$el.html(this.template());
 
     this.collection.each(function(model) { 
@@ -45,9 +45,10 @@ APP.GraphLinkView = Backbone.View.extend({
 
   className: 'list-group-item',
 
-  render: function() {  
+  render: function() {  console.log('render link');
     this.$el.html(this.template({
       title: this.model.attributes.title,
+      idGraph: this.model.attributes.idGraph,
       id: this.model.id,
       cid: this.model.cid
     }));
@@ -85,9 +86,32 @@ APP.GraphLinkView = Backbone.View.extend({
   },
 
   remove: function() {  
-    if(this.model.destroy()) {
-      APP.graphCollection.remove(APP.graphCollection.where({cid: this.model.cid}));
-    };    
+    //console.log(APP.graphCollection);
+    console.log(this.model);
+    this.model.destroy();
+    console.log(APP.graphCollection);
+    //APP.graphCollection.remove(this.model);
+
+/*    {
+      APP.graphCollection.remove(this.model)
+      console.log('destroyed');
+    } else {
+      console.log('no destroyed');
+    }*/
+    //APP.graphCollection.remove(this.model);
+/*    var model = this.model.get('idGraph');
+    APP.graphCollection.remove(this.model);
+
+
+    if(this.model.destroy()) {    
+      
+      console.log('idGraph ' + idGraph);
+      console.log('typeof idGraph ' + typeof idGraph);
+
+      var m = APP.graphCollection.get(idGraph);
+      console.log(m);*/
+      //APP.graphCollection.remove(APP.graphCollection.get(idGraph));
+    //};    
   }, 
 
   EnterKeyHandler: function (e) { 

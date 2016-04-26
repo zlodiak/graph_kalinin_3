@@ -11,7 +11,7 @@ APP.Graph = Backbone.Model.extend({
     dots: []
   }, 
 
-  //idAttribute: 'cid',
+  idAttribute: 'idGraph',
 
   validate: function(attrs) {
     var errorsArr = [],
