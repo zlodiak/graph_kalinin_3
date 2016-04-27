@@ -138,10 +138,18 @@ APP.AddDotModalView = Backbone.View.extend({
     var newIdDot = APP.dotCollection.getNewIdDot();     
 
     newDot.set({idDot: newIdDot}); 
-    APP.dotCollection.add(newDot);
-    newDot.save();
 
-    //if(APP.dotCollection.add(newDot)) { newDot.save() };   
+    if (newDot.isValid()) {
+      if(APP.dotCollection.add(newDot)) { newDot.save() };            
+      this.$el.find('#addDotModal').modal('hide');      
+      this.$el.find('#addDotModal input.form-control').val('');   
+      APP.helper.changeBorderColorElem('#addDotModal input.form-control', '#ccc');   
+    } else {
+      var errorsFeildsArr = newDot.validationError;
+
+      APP.helper.changeBorderColorElem('#addDotModal input.form-control', '#ccc');
+      for(var i in errorsFeildsArr) { APP.helper.changeBorderColorElem('#fld_' + errorsFeildsArr[i], '#f00') };
+    };
 
     console.log('add dot', newDot);
     console.log(APP.dotCollection);
