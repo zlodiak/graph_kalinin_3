@@ -13,12 +13,12 @@
             <div class="modal-body" id="addDotModalFields">
               <p>
                 <label for="fld_x_coord">X координата</label>
-                <input class="form-control" id="fld_x_coord" name="fld_x_coord" type="number">
+                <input class="form-control" id="fld_xCoord" name="fld_x_coord" type="number">
               </p>
 
               <p>
                 <label for="fld_y_coord">Y координата</label>
-                <input class="form-control" id="fld_y_coord" name="fld_y_coord" type="number">
+                <input class="form-control" id="fld_yCoord" name="fld_y_coord" type="number">
               </p>
 
               <p>

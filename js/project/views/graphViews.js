@@ -121,9 +121,9 @@ APP.AddDotModalView = Backbone.View.extend({
   createDot: function(e) {
     e.preventDefault();
   
-    var xCoordStr = this.$el.find('#fld_x_coord').val(),
+    var xCoordStr = this.$el.find('#fld_xCoord').val(),
         xCoordInt = parseInt(xCoordStr, 10),
-        yCoordStr = this.$el.find('#fld_y_coord').val(),
+        yCoordStr = this.$el.find('#fld_yCoord').val(),
         yCoordInt = parseInt(yCoordStr, 10),
         info = this.$el.find('#fld_description').val(),  
         idGraph = this.model.get('idGraph'),        
@@ -131,7 +131,11 @@ APP.AddDotModalView = Backbone.View.extend({
           xCoord: xCoordInt,
           yCoord: yCoordInt,
           info: info,
-          graphId: idGraph
+          graphId: idGraph,
+          yMax: this.model.get('yMax'),
+          yMin: this.model.get('yMin'),
+          xMax: this.model.get('xMax'),
+          xMin: this.model.get('xMin')
         };
 
     var newDot = new APP.Dot(newDotData);
@@ -150,17 +154,6 @@ APP.AddDotModalView = Backbone.View.extend({
       APP.helper.changeBorderColorElem('#addDotModal input.form-control', '#ccc');
       for(var i in errorsFeildsArr) { APP.helper.changeBorderColorElem('#fld_' + errorsFeildsArr[i], '#f00') };
     };
-
-    console.log('add dot', newDot);
-    console.log(APP.dotCollection);
-
-
-
-
-
-
-
-
   }
 
 });
