@@ -1,15 +1,18 @@
 APP.GraphView = Backbone.View.extend({
 
   initialize: function(options) {   
-   this.idGraph = options.idGraph;   
+   this.idGraph = parseInt(options.idGraph, 10);   
    this.graphObj = APP.graphCollection.get(this.idGraph); 
+   //this.graphsDots = APP.dotCollection.where({graphId: this.idGraph});
 
    this.xMin = parseInt(this.graphObj.attributes.xMin, 10);   
    this.xMax = parseInt(this.graphObj.attributes.xMax, 10);   
    this.xPeriod = parseInt(this.graphObj.attributes.xPeriod, 10); 
    this.yMin = parseInt(this.graphObj.attributes.yMin, 10);   
    this.yMax = parseInt(this.graphObj.attributes.yMax, 10);   
-   this.yPeriod = parseInt(this.graphObj.attributes.yPeriod, 10);    
+   this.yPeriod = parseInt(this.graphObj.attributes.yPeriod, 10);   
+
+   this.listenTo( APP.dotCollection, 'add', this.renderDots ); 
   },    
 
   tagName: 'div',
@@ -27,6 +30,7 @@ APP.GraphView = Backbone.View.extend({
     this.renderGuides();
     this.renderScaleMarks();
     this.renderScaleValues();
+    this.renderDots();
 
     return this;
   }, 
@@ -93,6 +97,33 @@ APP.GraphView = Backbone.View.extend({
       this.ctx.textAlign = "left";
       this.ctx.fillText(i, (i - this.xMin) + this.xValuesOffset, 20);
     };    
+  },
+
+  renderDots: function() {  console.log('renderDots');
+    var self = this; 
+    var graphsDots = APP.dotCollection.where({graphId: this.idGraph});
+    
+    _pointCircle = function (x, y, ctx) {
+      ctx.beginPath();
+      ctx.arc(x, y, 1, 0, 2 * Math.PI, true);
+      ctx.strokeStyle = '#f00';
+      ctx.stroke();
+    };     
+
+    _.each(graphsDots, function(model) {
+      var xCoord = model.get('xCoord'),
+          yCoord = (self.yMin - model.get('yCoord'));
+
+/*      self.ctx.beginPath();
+      self.ctx.moveTo(xCoord, yCoord);
+      self.ctx.lineTo(xCoord + 1, yCoord + 1);
+      self.ctx.stroke();  */
+           
+      _pointCircle(xCoord, yCoord, self.ctx);
+      //self.ctx.fillRect(xCoord, yCoord, 3, 3);
+    });
+
+
   }    
 
 });
